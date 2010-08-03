@@ -7,7 +7,7 @@ using System.Xml.Linq;
 using MyExtensions;
 namespace XML2List
 {
-    public class PathCollector
+    public class PathFinder
     {
         private XElement root = null;
         private PathCounter pathCounter;
@@ -17,14 +17,14 @@ namespace XML2List
             get { return pathCounter; }
         }
 
-        public PathCollector(XElement root)
+        public PathFinder(XElement root)
         {
             this.root = root;
             pathCounter = new PathCounter();
-            CollectByRecursion(this.root,"/" + this.root.Name);
+            FindByRecursion(this.root,"/" + this.root.Name);
         }
 
-        private void CollectByRecursion(XElement element, string xmlPath)
+        private void FindByRecursion(XElement element, string xmlPath)
         {
             var q = element.Elements();
             if (q.Count() == 0)
@@ -54,7 +54,7 @@ namespace XML2List
                     pathCounter.Add(newXmlPath + attributeValue);
                 }
 
-                CollectByRecursion(xElement, newXmlPath);
+                FindByRecursion(xElement, newXmlPath);
             }
         }
     }

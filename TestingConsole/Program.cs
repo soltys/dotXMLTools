@@ -11,7 +11,7 @@ namespace TestingConsole
         static void Main(string[] args)
         {
             XElement root = XElement.Load(@"c:\pawel\xmlText\ulice.xml");
-            PathCollector pc = new PathCollector(root);
+            PathFinder pc = new PathFinder(root);
 
             foreach (var i in pc.PathCounter)
             {
