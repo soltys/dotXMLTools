@@ -7,6 +7,6 @@ namespace XML2List
 {
     interface IListSelect
     {
-        IEnumerable<XElement> SelectItems(IEnumerable<IEnumerable<XElement>> listofXElements);
+        List<List<XElement>> SelectItems(List<List<XElement>> listofXElements);
     }
 }
