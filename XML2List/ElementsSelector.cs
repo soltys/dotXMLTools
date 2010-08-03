@@ -8,9 +8,15 @@ namespace XML2List
 {
     class ElementsSelector : IListSelect
     {
-        public List<List<XElement>> SelectItems(List<List<XElement>> listofXElements)
+        private string childrenNames;
+
+        public ElementsSelector(string childrenNames)
         {
-            throw new NotImplementedException();
+            this.childrenNames = childrenNames;
+        }
+        public IEnumerable<XElement> SelectItems(IEnumerable<XElement> listofXElements)
+        {
+            return listofXElements.Elements(childrenNames);
         }
     }
 }

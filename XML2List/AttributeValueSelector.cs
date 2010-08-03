@@ -7,7 +7,7 @@ namespace XML2List
 {
     class AttributeValueSelector: IListSelect
     {
-        List<List<XElement>> IListSelect.SelectItems(List<List<XElement>> listofXElements)
+        IEnumerable<XElement> IListSelect.SelectItems(IEnumerable<XElement> listofXElements)
         {
             throw new NotImplementedException();
         }

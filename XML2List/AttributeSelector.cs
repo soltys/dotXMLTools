@@ -8,7 +8,7 @@ namespace XML2List
 {
     class AttributeSelector : IListSelect
     {
-        public List<List<XElement>> SelectItems(List<List<XElement>> listofXElements)
+        public IEnumerable<XElement> SelectItems(IEnumerable<XElement> listofXElements)
         {
             throw new NotImplementedException();
         }
