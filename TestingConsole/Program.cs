@@ -10,13 +10,14 @@ namespace TestingConsole
     {
         static void Main(string[] args)
         {
-            XElement root = XElement.Load(@"c:\pawel\xmlText\ulice.xml");
-            PathFinder pc = new PathFinder(root);
+            XDocument root = XDocument.Load(@"c:\pawel\xmlText\ulice.xml");
+            PathFinder pc = new PathFinder(root.Root);
 
-            foreach (var i in pc.PathCounter)
+            foreach (var s in pc.PathCounter)
             {
-                Console.WriteLine(i.Key + "  =  " + i.Value);
+                Console.WriteLine(s.Key + " " + s.Value);
             }
+            
         }
     }
 }
