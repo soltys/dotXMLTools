@@ -5,8 +5,9 @@ using System.Text;
 using System.Xml.Linq;
 namespace XML2List
 {
-    interface IListSelect
+    public interface IListSelect
     {
         IEnumerable<XElement> SelectItems(IEnumerable<XElement> listofXElements);
+        string Name { get; }
     }
 }

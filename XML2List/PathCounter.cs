@@ -18,9 +18,5 @@ namespace XML2List
                 Add(stringToAdd, 1);
             }
         }
-
-        
-
-        
     }
 }

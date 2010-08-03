@@ -6,10 +6,13 @@ using System.Xml.Linq;
 
 namespace XML2List
 {
-    class ElementsSelector : IListSelect
+    public class ElementsSelector : IListSelect
     {
         private string childrenNames;
-
+        public string Name
+        {
+            get { return childrenNames; }
+        }
         public ElementsSelector(string childrenNames)
         {
             this.childrenNames = childrenNames;

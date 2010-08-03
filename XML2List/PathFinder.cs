@@ -51,7 +51,7 @@ namespace XML2List
                 attribute = attribute + xAttribute.Name + ";";
                 attributeValue = attributeValue + xAttribute.Name + "=" + xAttribute.Value + ";";
             }
-            attribute = attribute.DeleteLastCharacter() + "]"; // Clean up for
+            attribute = attribute.DeleteLastCharacter() + "]";           // Clean up for
             attributeValue = attributeValue.DeleteLastCharacter() + "]"; // last semi-collon
 
             pathCounter.Add(pathToAdd);
