@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="AttributeSelector.cs" />
     <Compile Include="AttributeValueSelector.cs" />
+    <Compile Include="CommandLists.cs" />
     <Compile Include="ElementsSelector.cs" />
     <Compile Include="Interface\IElementGroupSelect.cs" />
     <Compile Include="Interface\IItemSelect.cs" />
