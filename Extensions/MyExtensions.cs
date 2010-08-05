@@ -11,5 +11,20 @@ namespace MyExtensions
         {
             return str.Substring(0, str.Length - 1);
         }
+
+        public static bool IsNotEmptyOrNull(this string str)
+        {
+            if(str != null)
+            {
+                return true;
+            }
+
+            if(str != "")
+            {
+                return true;
+            }
+
+            return false;
+        }
     }
 }
