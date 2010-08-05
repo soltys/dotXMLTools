@@ -7,9 +7,9 @@ using XML2List.Interface;
 
 namespace XML2List
 {
-    class ElementsSelector:IElementGroupSelect
+    class ElementsSelector:IItemSelect
     {
-        public IEnumerable<XElement> SelectItems(IEnumerable<XElement> listofXElements)
+        public bool SelectItem(XElement item)
         {
             throw new NotImplementedException();
         }

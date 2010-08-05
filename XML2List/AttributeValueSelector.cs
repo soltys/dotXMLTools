@@ -7,7 +7,7 @@ using XML2List.Interface;
 
 namespace XML2List
 {
-    public class AttributeValueSelector: IElementGroupSelect
+    public class AttributeValueSelector: IItemSelect
     {
         private string attribute;
         private string value;
@@ -17,17 +17,10 @@ namespace XML2List
             attribute = attr;
             this.value = value;
         }
-        IEnumerable<XElement> IElementGroupSelect.SelectItems(IEnumerable<XElement> listofXElements)
+
+        public bool SelectItem(XElement item)
         {
-            List<XElement> listAfterSelection = new List<XElement>();
-            foreach (var element in listofXElements)
-            {
-                if(element.Attribute(attribute) != null && element.Attribute(attribute).Value == value)
-                {
-                    listAfterSelection.Add(element);
-                }
-            }
-            return listAfterSelection;
+            throw new NotImplementedException();
         }
 
         public string Value
