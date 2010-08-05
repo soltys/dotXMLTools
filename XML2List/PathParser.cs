@@ -35,7 +35,8 @@ namespace XML2List
 
         private IElementGroupSelect getGroupCommand(string pathPart)
         {
-            return null;
+            string groupCommand = deleteAttributes(pathPart);
+            return new ElementsGroupSelector(groupCommand);
         }
 
         private string deleteAttributes(string pathPart)
