@@ -43,7 +43,7 @@
     <Compile Include="AttributeSelector.cs" />
     <Compile Include="AttributeValueSelector.cs" />
     <Compile Include="ElementsSelector.cs" />
-    <Compile Include="IListSelect.cs" />
+    <Compile Include="IElementGroupSelect.cs" />
     <Compile Include="PathFinder.cs" />
     <Compile Include="PathCounter.cs" />
     <Compile Include="PathParser.cs" />
