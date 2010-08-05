@@ -6,14 +6,14 @@ using System.Xml.Linq;
 
 namespace XML2List
 {
-    class AttributeSelector : IListSelect
+    class AttributeSelector : IElementGroupSelect
     {
         public IEnumerable<XElement> SelectItems(IEnumerable<XElement> listofXElements)
         {
             throw new NotImplementedException();
         }
 
-        public string Name
+        public string Value
         {
             get { throw new NotImplementedException(); }
         }

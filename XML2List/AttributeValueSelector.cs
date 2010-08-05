@@ -5,7 +5,7 @@ using System.Text;
 using System.Xml.Linq;
 namespace XML2List
 {
-    public class AttributeValueSelector: IListSelect
+    public class AttributeValueSelector: IElementGroupSelect
     {
         private string attribute;
         private string value;
@@ -15,7 +15,7 @@ namespace XML2List
             attribute = attr;
             this.value = value;
         }
-        IEnumerable<XElement> IListSelect.SelectItems(IEnumerable<XElement> listofXElements)
+        IEnumerable<XElement> IElementGroupSelect.SelectItems(IEnumerable<XElement> listofXElements)
         {
             List<XElement> listAfterSelection = new List<XElement>();
             foreach (var element in listofXElements)
@@ -28,7 +28,7 @@ namespace XML2List
             return listAfterSelection;
         }
 
-        public string Name
+        public string Value
         {
             get { return attribute + "=" + value; }
         }

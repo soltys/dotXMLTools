@@ -6,20 +6,20 @@ using System.Xml.Linq;
 
 namespace XML2List
 {
-    public class ElementsGroupSelector : IListSelect
+    public class ElementsGroupSelector : IElementGroupSelect
     {
-        private readonly string childrenNames;
-        public string Name
+        private readonly string _childrenValues;
+        public string Value
         {
-            get { return childrenNames; }
+            get { return _childrenValues; }
         }
-        public ElementsGroupSelector(string childrenNames)
+        public ElementsGroupSelector(string _childrenValues)
         {
-            this.childrenNames = childrenNames;
+            this._childrenValues = _childrenValues;
         }
         public IEnumerable<XElement> SelectItems(IEnumerable<XElement> listofXElements)
         {
-            return listofXElements.Elements(childrenNames);
+            return listofXElements.Elements(_childrenValues);
         }
     }
 }
