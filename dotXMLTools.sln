@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestingConsole", "TestingCo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Extensions", "Extensions\Extensions.csproj", "{1BB5F157-5EB8-46B2-AB69-CEAD034E1E9E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotXMLToolsTest", "DotXMLToolsTest\DotXMLToolsTest.csproj", "{02B73DCA-C601-4221-8A1D-9ED3D9B74779}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtensionsTest", "DotXMLToolsTest\ExtensionsTest.csproj", "{02B73DCA-C601-4221-8A1D-9ED3D9B74779}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D8E50C60-987D-44BE-8D04-3B85147EE0E6}"
 	ProjectSection(SolutionItems) = preProject
