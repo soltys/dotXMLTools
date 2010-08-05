@@ -6,20 +6,16 @@ using System.Xml.Linq;
 
 namespace XML2List
 {
-    public class ElementsSelector : IListSelect
+    class ElementsSelector:IListSelect
     {
-        private string childrenNames;
-        public string Name
-        {
-            get { return childrenNames; }
-        }
-        public ElementsSelector(string childrenNames)
-        {
-            this.childrenNames = childrenNames;
-        }
         public IEnumerable<XElement> SelectItems(IEnumerable<XElement> listofXElements)
         {
-            return listofXElements.Elements(childrenNames);
+            throw new NotImplementedException();
+        }
+
+        public string Name
+        {
+            get { throw new NotImplementedException(); }
         }
     }
 }
