@@ -5,7 +5,7 @@ using System.Text;
 
 namespace MyExtensions
 {
-    public static class MyExtensions
+    public static class MyStringExtensions
     {
         public static string DeleteLastCharacter(this string str)
         {
