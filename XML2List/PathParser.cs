@@ -30,7 +30,23 @@ namespace XML2List
 
         private IItemSelect getItemCommand(string pathPart)
         {
+            string attributePart = getAttributes(pathPart);
             return null;
+        }
+
+        private string getAttributes(string pathPart)
+        {
+            int whereAttributesStarts = pathPart.IndexOf('[');
+            bool isPartHaveAttributes = whereAttributesStarts == -1;
+
+            if (isPartHaveAttributes)
+            {
+                return pathPart.Substring(whereAttributesStarts, pathPart.Length);
+            }
+            else
+            {
+                return null;
+            }
         }
 
         private IElementGroupSelect getGroupCommand(string pathPart)
@@ -46,7 +62,7 @@ namespace XML2List
 
             if (isPartHaveAttributes)
             {
-                return pathPart.Substring(whereAttributesStarts, pathPart.Length);
+                return pathPart.Substring(0,whereAttributesStarts);
             }
             else
             {
