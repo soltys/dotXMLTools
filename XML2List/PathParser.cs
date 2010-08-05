@@ -35,7 +35,33 @@ namespace XML2List
             if (attributePart == null)
                 return new ElementsSelector(pathPart);
 
+            string[] attributes = removeBrackets(attributePart).Split(';');
+            foreach (var attribute in attributes)
+            {
+                if(containsValue(attribute))
+                {
+                    string[] attributeValue = attribute.Split('=');
+                    return new AttributeValueSelector(attributeValue[0], attributeValue[1]);
+                }
+                else
+                {
+                    return new AttributeSelector(attribute);
+                }
+                
+            }
             return null;
+        }
+
+        private bool containsValue(string attribute)
+        {
+            return attribute.Contains("=");
+        }
+
+        private string removeBrackets(string attributePart)
+        {
+            attributePart = attributePart.Replace("[", "");
+            attributePart = attributePart.Replace("]", "");
+            return attributePart;
         }
 
         private string getAttributes(string pathPart)
@@ -57,6 +83,7 @@ namespace XML2List
         {
             string groupCommand = deleteAttributes(pathPart);
             return new ElementsGroupSelector(groupCommand);
+            
         }
 
         private string deleteAttributes(string pathPart)
@@ -73,5 +100,7 @@ namespace XML2List
                 return pathPart;
             }
         }
+
+        
     }
 }
