@@ -8,15 +8,20 @@ using XML2List.Interface;
 namespace XML2List
 {
     class AttributeSelector : IItemSelect{
+        private string attribute;
+        public AttributeSelector(string attribute)
+        {
+            this.attribute = attribute;
+        }
 
         public bool SelectItem(XElement item)
         {
-            throw new NotImplementedException();
+            return item.Attribute(attribute) != null;
         }
 
         public string Value
         {
-            get { throw new NotImplementedException(); }
+            get { return attribute; }
         }
     }
 }
