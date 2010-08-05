@@ -9,14 +9,21 @@ namespace XML2List
 {
     class ElementsSelector:IItemSelect
     {
+        private string _elementName;
+
+        public ElementsSelector(string elementName)
+        {
+            this._elementName = elementName;
+        }
+
         public bool SelectItem(XElement item)
         {
-            throw new NotImplementedException();
+            return item.Name == _elementName;
         }
 
         public string Value
         {
-            get { throw new NotImplementedException(); }
+            get { return _elementName; }
         }
     }
 }

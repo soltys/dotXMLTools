@@ -31,6 +31,10 @@ namespace XML2List
         private IItemSelect getItemCommand(string pathPart)
         {
             string attributePart = getAttributes(pathPart);
+
+            if (attributePart == null)
+                return new ElementsSelector(pathPart);
+
             return null;
         }
 
