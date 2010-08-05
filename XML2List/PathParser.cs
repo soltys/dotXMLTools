@@ -18,8 +18,11 @@ namespace XML2List
                 IElementGroupSelect groupCommand = getGroupCommand(pathPart);
                 IItemSelect itemCommand = getItemCommand(pathPart);
 
-                commands.GroupSelectCommands.Add(groupCommand);
-                commands.ItemSelectCommands.Add(itemCommand);
+                if (groupCommand.IsNotNull())
+                    commands.GroupSelectCommands.Add(groupCommand);
+
+                if (itemCommand.IsNotNull())
+                    commands.ItemSelectCommands.Add(itemCommand);
             }
 
             return commands;
@@ -32,8 +35,22 @@ namespace XML2List
 
         private IElementGroupSelect getGroupCommand(string pathPart)
         {
-            
             return null;
+        }
+
+        private string deleteAttributes(string pathPart)
+        {
+            int whereAttributesStarts = pathPart.IndexOf('[');
+            bool isPartHaveAttributes = whereAttributesStarts == -1;
+
+            if (isPartHaveAttributes)
+            {
+                return pathPart.Substring(whereAttributesStarts, pathPart.Length);
+            }
+            else
+            {
+                return pathPart;
+            }
         }
     }
 }
