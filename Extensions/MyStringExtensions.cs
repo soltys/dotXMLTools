@@ -14,17 +14,7 @@ namespace MyExtensions
 
         public static bool IsNotEmptyOrNull(this string str)
         {
-            if(str != null)
-            {
-                return true;
-            }
-
-            if(str != "")
-            {
-                return true;
-            }
-
-            return false;
+            return !String.IsNullOrEmpty(str);
         }
     }
 }

@@ -5,8 +5,13 @@ using System.Text;
 using XML2List.Interface;
 namespace XML2List
 {
-    class CommandLists
+    public class CommandLists
     {
+        public CommandLists()
+        {
+            GroupSelectCommands  = new List<IElementGroupSelect>();
+            ItemSelectCommands = new List<IItemSelect>();
+        }
         public List<IElementGroupSelect> GroupSelectCommands { get; set; }
 
         public List<IItemSelect> ItemSelectCommands { get; set; }

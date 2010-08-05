@@ -6,7 +6,7 @@ using MyExtensions;
 using XML2List.Interface;
 namespace XML2List
 {
-    class PathParser
+    public class PathParser
     {
         public CommandLists ParsePath(string pathToParse)
         {
@@ -33,7 +33,7 @@ namespace XML2List
             string attributePart = getAttributes(pathPart);
 
             if (attributePart == null)
-                return new ElementsSelector(pathPart);
+                return null;
 
             string[] attributes = removeBrackets(attributePart).Split(';');
             foreach (var attribute in attributes)
@@ -67,11 +67,11 @@ namespace XML2List
         private string getAttributes(string pathPart)
         {
             int whereAttributesStarts = pathPart.IndexOf('[');
-            bool isPartHaveAttributes = whereAttributesStarts == -1;
+            bool isPartHaveAttributes = whereAttributesStarts != -1;
 
             if (isPartHaveAttributes)
             {
-                return pathPart.Substring(whereAttributesStarts, pathPart.Length);
+                return pathPart.Substring(whereAttributesStarts, pathPart.Length - whereAttributesStarts);
             }
             else
             {
@@ -89,7 +89,7 @@ namespace XML2List
         private string deleteAttributes(string pathPart)
         {
             int whereAttributesStarts = pathPart.IndexOf('[');
-            bool isPartHaveAttributes = whereAttributesStarts == -1;
+            bool isPartHaveAttributes = whereAttributesStarts != -1;
 
             if (isPartHaveAttributes)
             {
