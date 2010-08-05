@@ -6,7 +6,7 @@ using System.Xml.Linq;
 
 namespace XML2List.Interface
 {
-    interface IItemSelect
+    public interface IItemSelect
     {
         bool SelectItem(XElement item);
     }
