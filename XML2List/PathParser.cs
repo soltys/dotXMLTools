@@ -32,9 +32,10 @@ namespace XML2List
         {
             string attributePart = getAttributes(pathPart);
 
+            if (pathPart.EndsWith(PathCounter.LastElementSymbol))
+                return new ElementsSelector(pathPart.DeleteLastCharacter());
             if (attributePart == null)
                 return null;
-
             string[] attributes = removeBrackets(attributePart).Split(';');
             foreach (var attribute in attributes)
             {
@@ -82,6 +83,8 @@ namespace XML2List
         private IElementGroupSelect getGroupCommand(string pathPart)
         {
             string groupCommand = deleteAttributes(pathPart);
+            if (groupCommand.EndsWith(PathCounter.LastElementSymbol))
+                groupCommand = groupCommand.DeleteLastCharacter();
             return new ElementsGroupSelector(groupCommand);
             
         }
