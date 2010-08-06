@@ -20,7 +20,7 @@ namespace XML2List
 
         public bool SelectItem(XElement item)
         {
-            throw new NotImplementedException();
+            return (item.Attribute(attribute) != null) && (item.Attribute(attribute).Value == value);
         }
 
         public string Value
