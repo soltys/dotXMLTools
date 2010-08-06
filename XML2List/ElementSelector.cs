@@ -7,11 +7,11 @@ using XML2List.Interface;
 
 namespace XML2List
 {
-    class ElementsSelector:IItemSelect
+    public class ElementSelector:IItemSelect
     {
         private string _elementName;
 
-        public ElementsSelector(string elementName)
+        public ElementSelector(string elementName)
         {
             this._elementName = elementName;
         }

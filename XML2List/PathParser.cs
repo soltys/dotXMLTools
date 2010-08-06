@@ -33,7 +33,7 @@ namespace XML2List
             string attributePart = getAttributes(pathPart);
 
             if (pathPart.EndsWith(PathCounter.LastElementSymbol))
-                return new ElementsSelector(pathPart.DeleteLastCharacter());
+                return new ElementSelector(pathPart.DeleteLastCharacter());
             if (attributePart == null)
                 return null;
             string[] attributes = removeBrackets(attributePart).Split(';');
