@@ -98,12 +98,9 @@ namespace XML2List
             {
                 return pathPart.Substring(0,whereAttributesStarts);
             }
-            else
-            {
-                return pathPart;
-            }
+            
+            return pathPart;
         }
-
         
     }
 }
