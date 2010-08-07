@@ -6,9 +6,12 @@ using MyExtensions;
 using XML2List.Interface;
 namespace XML2List
 {
+    /// <summary>
+    /// Changes paths collected by PathFinder into commands for selecting items
+    /// </summary>
     public class PathParser
     {
-        public CommandLists ParsePath(string pathToParse)
+        public CommandLists ParsePath(string pathToParse,params string[] restPathToParse)
         {
             string[] pathSplitElements = pathToParse.Split('/');
             CommandLists commands = new CommandLists();
