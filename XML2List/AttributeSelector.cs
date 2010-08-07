@@ -14,9 +14,9 @@ namespace XML2List
             this.attribute = attribute;
         }
 
-        public bool SelectItem(XElement item)
+        public XElement SelectItem(XElement item)
         {
-            return item.Attribute(attribute) != null;
+            return null;
         }
 
         public string Value

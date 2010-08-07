@@ -8,7 +8,7 @@ namespace XML2List.Interface
 {
     public interface IItemSelect
     {
-        bool SelectItem(XElement item);
+        XElement SelectItem(XElement item);
 
         string Value { get; }
     }
