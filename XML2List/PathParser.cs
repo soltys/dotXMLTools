@@ -42,7 +42,7 @@ namespace XML2List
         {
             for (int i = 0; i < pathsToParse.Length; i++)
             {
-                pathsToParse[i] = pathsToParse[i].Substring(0, commonParent.Length);
+                pathsToParse[i] = pathsToParse[i].Substring(commonParent.Length+1); //add 1 for deleting '/'
             }
 
             return pathsToParse;
