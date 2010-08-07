@@ -133,14 +133,14 @@ namespace XML2List
 
         private IElementGroupSelect getGroupCommand(string pathPart)
         {
-            string groupCommand = deleteAttributes(pathPart);
+            string groupCommand = removeAttributes(pathPart);
             if (groupCommand.EndsWith(PathCounter.LastElementSymbol))
                 groupCommand = groupCommand.DeleteLastCharacter();
             return new ElementsGroupSelector(groupCommand);
             
         }
 
-        private string deleteAttributes(string pathPart)
+        private string removeAttributes(string pathPart)
         {
             int whereAttributesStarts = pathPart.IndexOf('[');
             bool isPartHaveAttributes = whereAttributesStarts != -1;
