@@ -11,31 +11,45 @@ namespace XML2List
     /// </summary>
     public class PathParser
     {
-        public CommandLists ParsePath(string pathToParse,params string[] restPathToParse)
+        public CommandLists ParsePaths(string[] pathsToParse)
         {
-            string commonParent = getCommonParent(pathToParse, restPathToParse);
-            string[] pathSplitElements = pathToParse.Split('/');
+            string commonParent = getCommonParent(pathsToParse);
+            pathsToParse = filterNotCommonParent(pathsToParse);
+
+            string[] pathSplitElements = commonParent.Split('/');
             CommandLists commands = new CommandLists();
             
             foreach(string pathPart in pathSplitElements.Where( x=> x.IsNotEmptyOrNull()))
             {
                 IElementGroupSelect groupCommand = getGroupCommand(pathPart);
-                IItemSelect itemCommand = getItemCommand(pathPart);
-
                 if (groupCommand.IsNotNull())
                     commands.GroupSelectCommands.Add(groupCommand);
 
-                if (itemCommand.IsNotNull())
-                    commands.ItemSelectCommands.Add(itemCommand);
             }
+
+            //TODO new loop for item commands
+#if false
+           
+            IItemSelect itemCommand = getItemCommand(pathPart);
+            if (itemCommand.IsNotNull())
+                commands.ItemSelectCommands.Add(itemCommand);
+#endif
 
             return commands;
         }
 
-        private string getCommonParent(string pathToParse, string[] restPathToParse)
+        private string[] filterNotCommonParent(string[] pathsToParse)
+        {
+            throw new NotImplementedException();
+        }
+
+       
+
+        private string getCommonParent(string[] restPathToParse)
         {
             string range = "/";
-            foreach (var nextElement in pathToParse.Split('/').Where(x => x.IsNotEmptyOrNull()))
+            string basePath = restPathToParse.First();
+            foreach (var nextElement in basePath.Split('/').Where(x => x.IsNotEmptyOrNull()))
             {
                 if (!checkCommonParent(range + nextElement,restPathToParse))
                     break;
@@ -50,6 +64,8 @@ namespace XML2List
             foreach (var path in restPathToParse)
             {
                 isCommonParrent = path.StartsWith(commonParrent);
+                if (!isCommonParrent)
+                    break;
             }
             return isCommonParrent;
         }
