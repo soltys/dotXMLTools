@@ -9,17 +9,17 @@ namespace XML2List
 {
     public class ElementSelector:IItemSelect
     {
-        private string _elementPath;
+        private string elementPath;
 
         public ElementSelector(string elementPath)
         {
-            this._elementPath = elementPath;
+            this.elementPath = elementPath;
         }
 
         public XElement SelectItem(XElement item)
         {
             //TODO change this in something more pretty
-            string [] elementsPaths = _elementPath.Split('/').Where(x => x.IsNotEmptyOrNull()).ToArray();
+            string [] elementsPaths = elementPath.Split('/').Where(x => x.IsNotEmptyOrNull()).ToArray();
             IEnumerable<XElement> collection = item.Elements(elementsPaths[0]);
             
             
@@ -41,7 +41,7 @@ namespace XML2List
 
         public string Value
         {
-            get { return _elementPath; }
+            get { return elementPath; }
         }
     }
 }
