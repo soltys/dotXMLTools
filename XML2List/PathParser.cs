@@ -46,7 +46,12 @@ namespace XML2List
 
         private bool checkCommonParent(string commonParrent, string[] restPathToParse)
         {
-            throw new NotImplementedException();
+            bool isCommonParrent = true;
+            foreach (var path in restPathToParse)
+            {
+                isCommonParrent = path.StartsWith(commonParrent);
+            }
+            return isCommonParrent;
         }
 
         private IItemSelect getItemCommand(string pathPart)
