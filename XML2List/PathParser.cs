@@ -34,6 +34,18 @@ namespace XML2List
 
         private string getCommonParent(string pathToParse, string[] restPathToParse)
         {
+            string range = "/";
+            foreach (var nextElement in pathToParse.Split('/').Where(x => x.IsNotEmptyOrNull()))
+            {
+                if (!checkCommonParent(range + nextElement,restPathToParse))
+                    break;
+                range = range + nextElement;
+            }
+            return range;
+        }
+
+        private bool checkCommonParent(string commonParrent, string[] restPathToParse)
+        {
             throw new NotImplementedException();
         }
 
