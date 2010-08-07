@@ -12,10 +12,17 @@ namespace XML2List
     public class PathParser
     {
         public CommandLists ParsePaths(string[] pathsToParse)
-        {
+        {   
             string commonParent = getCommonParent(pathsToParse);
-            pathsToParse = filterNotCommonParent(commonParent,pathsToParse);
+            if (pathsToParse.Length == 1)
+            {
+                pathsToParse[0] = pathsToParse[0].Split('/').Last();
+            }
+            else
+            {
+                pathsToParse = filterNotCommonParent(commonParent, pathsToParse);
 
+            }
             CommandLists commands = new CommandLists();
             string[] pathSplitElements = commonParent.Split('/');
             
@@ -32,8 +39,6 @@ namespace XML2List
                 if (itemCommand.IsNotNull())
                     commands.ItemSelectCommands.Add(itemCommand);
             }
-            
-
 
             return commands;
         }
@@ -51,7 +56,7 @@ namespace XML2List
         private string getCommonParent(string[] restPathToParse)
         {
             string range = "";
-            string basePath = restPathToParse.First();
+            string basePath = restPathToParse[0];
             foreach (var nextElement in basePath.Split('/').Where(x => x.IsNotEmptyOrNull()))
             {
                 if (!checkCommonParent(range + "/" + nextElement,restPathToParse))
