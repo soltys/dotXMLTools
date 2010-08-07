@@ -27,8 +27,16 @@ namespace XML2List
             {
                 collection = collection.Elements(elementsPaths[index]);
             }
-            
-            return collection.First();
+
+            try
+            {
+                return collection.First();
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
         }
 
         public string Value
