@@ -14,36 +14,39 @@ namespace XML2List
         public CommandLists ParsePaths(string[] pathsToParse)
         {
             string commonParent = getCommonParent(pathsToParse);
-            pathsToParse = filterNotCommonParent(pathsToParse);
+            pathsToParse = filterNotCommonParent(commonParent,pathsToParse);
 
-            string[] pathSplitElements = commonParent.Split('/');
             CommandLists commands = new CommandLists();
+            string[] pathSplitElements = commonParent.Split('/');
             
             foreach(string pathPart in pathSplitElements.Where( x=> x.IsNotEmptyOrNull()))
             {
                 IElementGroupSelect groupCommand = getGroupCommand(pathPart);
                 if (groupCommand.IsNotNull())
                     commands.GroupSelectCommands.Add(groupCommand);
-
             }
 
-            //TODO new loop for item commands
-#if false
-           
-            IItemSelect itemCommand = getItemCommand(pathPart);
-            if (itemCommand.IsNotNull())
-                commands.ItemSelectCommands.Add(itemCommand);
-#endif
+            foreach (var pathPart in pathsToParse)
+            {
+                IItemSelect itemCommand = getItemCommand(pathPart);
+                if (itemCommand.IsNotNull())
+                    commands.ItemSelectCommands.Add(itemCommand);
+            }
+            
+
 
             return commands;
         }
 
-        private string[] filterNotCommonParent(string[] pathsToParse)
+        private string[] filterNotCommonParent(string commonParent,string[] pathsToParse)
         {
-            throw new NotImplementedException();
-        }
+            for (int i = 0; i < pathsToParse.Length; i++)
+            {
+                pathsToParse[i] = pathsToParse[i].Substring(0, commonParent.Length);
+            }
 
-       
+            return pathsToParse;
+        }
 
         private string getCommonParent(string[] restPathToParse)
         {
@@ -70,6 +73,7 @@ namespace XML2List
             return isCommonParrent;
         }
 
+        //TODO Change method to current situation
         private IItemSelect getItemCommand(string pathPart)
         {
             string attributePart = getAttributes(pathPart);
