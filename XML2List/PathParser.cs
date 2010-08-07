@@ -13,9 +13,10 @@ namespace XML2List
     {
         public CommandLists ParsePath(string pathToParse,params string[] restPathToParse)
         {
+            string commonParent = getCommonParent(pathToParse, restPathToParse);
             string[] pathSplitElements = pathToParse.Split('/');
             CommandLists commands = new CommandLists();
-
+            
             foreach(string pathPart in pathSplitElements.Where( x=> x.IsNotEmptyOrNull()))
             {
                 IElementGroupSelect groupCommand = getGroupCommand(pathPart);
@@ -29,6 +30,11 @@ namespace XML2List
             }
 
             return commands;
+        }
+
+        private string getCommonParent(string pathToParse, string[] restPathToParse)
+        {
+            throw new NotImplementedException();
         }
 
         private IItemSelect getItemCommand(string pathPart)
