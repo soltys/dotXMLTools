@@ -93,7 +93,7 @@ namespace XML2List
                 if(containsValue(attribute))
                 {
                     string[] attributeValue = attribute.Split('=');
-                    return new AttributeValueSelector(attributeValue[0], attributeValue[1]);
+                    return new ElementAttributeValueSelector(removeAttributes(pathPart),attributeValue[0], attributeValue[1]);
                 }
                 else
                 {

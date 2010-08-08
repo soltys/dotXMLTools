@@ -43,6 +43,7 @@
     <Compile Include="AttributeSelector.cs" />
     <Compile Include="AttributeValueSelector.cs" />
     <Compile Include="CommandLists.cs" />
+    <Compile Include="ElementAttributeValueSelector.cs" />
     <Compile Include="ElementSelector.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="Interface\IElementGroupSelect.cs" />

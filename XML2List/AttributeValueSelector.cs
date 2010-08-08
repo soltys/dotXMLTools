@@ -20,6 +20,10 @@ namespace XML2List
 
         public XElement SelectItem(XElement item)
         {
+            if (item.Attribute(attribute) != null && item.Attribute(attribute).Value == value)
+            {
+                return item;
+            }
             return null;
         }
 
