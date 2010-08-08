@@ -14,6 +14,9 @@ namespace XML2List
     {
         public CommandLists ParsePaths(string[] pathsToParse)
         {
+            if (pathsToParse.Length == 0)
+                throw new ArgumentException("Array is empty");
+
             CommandLists commands = new CommandLists();
             if (pathsToParse.Length == 1)
             {
@@ -42,8 +45,8 @@ namespace XML2List
         private CommandLists parseManyPaths(string[] pathsToParse)
         {
             CommandLists commands = new CommandLists();
-            string commonParent = getCommonParent(pathsToParse);
-            pathsToParse = filterNotCommonParent(commonParent, pathsToParse);
+            string commonParent = PathTools.getCommonParent(pathsToParse);
+            pathsToParse = PathTools.filterNotCommonParent(commonParent, pathsToParse);
 
             commands = createCommands(pathsToParse, commonParent);
             return commands;
@@ -70,41 +73,6 @@ namespace XML2List
             }
 
             return commands;
-        }
-
-        private string[] filterNotCommonParent(string commonParent, string[] pathsToParse)
-        {
-            for (int i = 0; i < pathsToParse.Length; i++)
-            {
-                pathsToParse[i] = pathsToParse[i].Substring(commonParent.Length + 1); //add 1 for deleting '/'
-            }
-
-            return pathsToParse;
-        }
-
-        private string getCommonParent(string[] restPathToParse)
-        {
-            string range = "";
-            string basePath = restPathToParse[0];
-            foreach (var nextElement in basePath.Split('/').Where(x => x.IsNotEmptyOrNull()))
-            {
-                if (!checkCommonParent(range + "/" + nextElement, restPathToParse))
-                    break;
-                range = range + "/" + nextElement;
-            }
-            return range;
-        }
-
-        private bool checkCommonParent(string commonParrent, string[] restPathToParse)
-        {
-            bool isCommonParrent = true;
-            foreach (var path in restPathToParse)
-            {
-                isCommonParrent = path.StartsWith(commonParrent);
-                if (!isCommonParrent)
-                    break;
-            }
-            return isCommonParrent;
         }
 
         //TODO Add Attribute commmands creation
