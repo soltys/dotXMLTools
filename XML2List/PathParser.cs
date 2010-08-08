@@ -34,8 +34,10 @@ namespace XML2List
         {
             CommandLists commands = new CommandLists();
 
-            pathsToParse[0] = pathsToParse[0].Split('/').Last();
             string commonParent = pathsToParse[0];
+            commonParent = commonParent.Substring(0, commonParent.LastIndexOf('/')); //this deleting last groupCommand
+
+            pathsToParse[0] = pathsToParse[0].Split('/').Last();
 
             commands = createCommands(pathsToParse, commonParent);
 
