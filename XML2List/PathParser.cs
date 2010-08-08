@@ -14,15 +14,44 @@ namespace XML2List
     {
         public CommandLists ParsePaths(string[] pathsToParse)
         {
-            string commonParent = getCommonParent(pathsToParse);
+            CommandLists commands = new CommandLists();
             if (pathsToParse.Length == 1)
             {
-                pathsToParse[0] = pathsToParse[0].Split('/').Last();
+                commands = parseOnePath(pathsToParse);
             }
             else
             {
-                pathsToParse = filterNotCommonParent(commonParent, pathsToParse);
+                commands = parseManyPaths(pathsToParse);
             }
+
+            return commands;
+        }
+
+        private CommandLists parseOnePath(string[] pathsToParse)
+        {
+            CommandLists commands = new CommandLists();
+
+            pathsToParse[0] = pathsToParse[0].Split('/').Last();
+            string commonParent = pathsToParse[0];
+
+            commands = createCommands(pathsToParse, commonParent);
+
+            return commands;
+        }
+
+        private CommandLists parseManyPaths(string[] pathsToParse)
+        {
+            CommandLists commands = new CommandLists();
+            string commonParent = getCommonParent(pathsToParse);
+            pathsToParse = filterNotCommonParent(commonParent, pathsToParse);
+
+            commands = createCommands(pathsToParse, commonParent);
+            return commands;
+        }
+
+
+        private CommandLists createCommands(string[] pathsToParse, string commonParent)
+        {
             CommandLists commands = new CommandLists();
             string[] pathSplitElements = commonParent.Split('/');
 
@@ -78,37 +107,15 @@ namespace XML2List
             return isCommonParrent;
         }
 
-        //TODO Change method to current situation
+        //TODO Add Attribute commmands creation
         private IItemSelect getItemCommand(string pathPart)
         {
-            string attributePart = PathTools.getAttributes(pathPart);
-
-            if (pathPart.EndsWith(PathCounter.LastElementSymbol))
-                return new ElementSelector(pathPart.DeleteLastCharacter());
-            if (attributePart == null)
-                return null;
-            string[] attributes = PathTools.removeBrackets(attributePart).Split(';');
-            foreach (var attribute in attributes)
-            {
-                if (PathTools.containsValue(attribute))
-                {
-                    string[] attributeValue = attribute.Split('=');
-                    return new ElementAttributeValueSelector(PathTools.removeAttributes(pathPart), attributeValue[0],
-                                                             attributeValue[1]);
-                }
-                else
-                {
-                    return new AttributeSelector(attribute);
-                }
-            }
-            return null;
+            return new ElementSelector(pathPart);
         }
 
         private IElementGroupSelect getGroupCommand(string pathPart)
         {
             string groupCommand = PathTools.removeAttributes(pathPart);
-            if (groupCommand.EndsWith(PathCounter.LastElementSymbol))
-                groupCommand = groupCommand.DeleteLastCharacter();
             return new ElementsGroupSelector(groupCommand);
         }
     }

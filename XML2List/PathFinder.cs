@@ -24,7 +24,7 @@ namespace XML2List
 
             AddPathToCounter(this.root, "/" + this.root.Name);
             FindByRecursion(this.root, "/" + this.root.Name);
-            pathCounter.AddPlusMarker();
+            
         }
 
 
