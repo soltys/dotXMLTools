@@ -16,7 +16,7 @@ namespace XML2List
         {
             attribute = attr;
             value = val;
-            elementPath = removeAttributes(elemPath);
+            elementPath = PathTools.removeAttributes(elemPath);
         }
         public XElement SelectItem(XElement item)
         {
@@ -45,19 +45,7 @@ namespace XML2List
                 return null;
             }
         }
-
-        private string removeAttributes(string pathPart)
-        {
-            int whereAttributesStarts = pathPart.IndexOf('[');
-            bool isPartHaveAttributes = whereAttributesStarts != -1;
-
-            if (isPartHaveAttributes)
-            {
-                return pathPart.Substring(0, whereAttributesStarts);
-            }
-
-            return pathPart;
-        }
+       
         public string Value
         {
             get { return string.Format("{0} {1} {2}", elementPath, attribute, value); }

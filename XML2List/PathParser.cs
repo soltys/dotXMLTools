@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using MyExtensions;
 using XML2List.Interface;
+
 namespace XML2List
 {
     /// <summary>
@@ -12,7 +13,7 @@ namespace XML2List
     public class PathParser
     {
         public CommandLists ParsePaths(string[] pathsToParse)
-        {   
+        {
             string commonParent = getCommonParent(pathsToParse);
             if (pathsToParse.Length == 1)
             {
@@ -21,12 +22,11 @@ namespace XML2List
             else
             {
                 pathsToParse = filterNotCommonParent(commonParent, pathsToParse);
-
             }
             CommandLists commands = new CommandLists();
             string[] pathSplitElements = commonParent.Split('/');
-            
-            foreach(string pathPart in pathSplitElements.Where( x=> x.IsNotEmptyOrNull()))
+
+            foreach (string pathPart in pathSplitElements.Where(x => x.IsNotEmptyOrNull()))
             {
                 IElementGroupSelect groupCommand = getGroupCommand(pathPart);
                 if (groupCommand.IsNotNull())
@@ -43,11 +43,11 @@ namespace XML2List
             return commands;
         }
 
-        private string[] filterNotCommonParent(string commonParent,string[] pathsToParse)
+        private string[] filterNotCommonParent(string commonParent, string[] pathsToParse)
         {
             for (int i = 0; i < pathsToParse.Length; i++)
             {
-                pathsToParse[i] = pathsToParse[i].Substring(commonParent.Length+1); //add 1 for deleting '/'
+                pathsToParse[i] = pathsToParse[i].Substring(commonParent.Length + 1); //add 1 for deleting '/'
             }
 
             return pathsToParse;
@@ -59,7 +59,7 @@ namespace XML2List
             string basePath = restPathToParse[0];
             foreach (var nextElement in basePath.Split('/').Where(x => x.IsNotEmptyOrNull()))
             {
-                if (!checkCommonParent(range + "/" + nextElement,restPathToParse))
+                if (!checkCommonParent(range + "/" + nextElement, restPathToParse))
                     break;
                 range = range + "/" + nextElement;
             }
@@ -81,77 +81,35 @@ namespace XML2List
         //TODO Change method to current situation
         private IItemSelect getItemCommand(string pathPart)
         {
-            string attributePart = getAttributes(pathPart);
+            string attributePart = PathTools.getAttributes(pathPart);
 
             if (pathPart.EndsWith(PathCounter.LastElementSymbol))
                 return new ElementSelector(pathPart.DeleteLastCharacter());
             if (attributePart == null)
                 return null;
-            string[] attributes = removeBrackets(attributePart).Split(';');
+            string[] attributes = PathTools.removeBrackets(attributePart).Split(';');
             foreach (var attribute in attributes)
             {
-                if(containsValue(attribute))
+                if (PathTools.containsValue(attribute))
                 {
                     string[] attributeValue = attribute.Split('=');
-                    return new ElementAttributeValueSelector(removeAttributes(pathPart),attributeValue[0], attributeValue[1]);
+                    return new ElementAttributeValueSelector(PathTools.removeAttributes(pathPart), attributeValue[0],
+                                                             attributeValue[1]);
                 }
                 else
                 {
                     return new AttributeSelector(attribute);
                 }
-                
             }
             return null;
         }
 
-        private bool containsValue(string attribute)
-        {
-            return attribute.Contains("=");
-        }
-
-        private string removeBrackets(string attributePart)
-        {
-            attributePart = attributePart.Replace("[", "");
-            attributePart = attributePart.Replace("]", "");
-            return attributePart;
-        }
-
-        private string getAttributes(string pathPart)
-        {
-            int whereAttributesStarts = pathPart.IndexOf('[');
-            bool isPartHaveAttributes = whereAttributesStarts != -1;
-
-            if (isPartHaveAttributes)
-            {
-                return pathPart.Substring(whereAttributesStarts, pathPart.Length - whereAttributesStarts);
-            }
-            else
-            {
-                return null;
-            }
-        }
-
         private IElementGroupSelect getGroupCommand(string pathPart)
         {
-            string groupCommand = removeAttributes(pathPart);
+            string groupCommand = PathTools.removeAttributes(pathPart);
             if (groupCommand.EndsWith(PathCounter.LastElementSymbol))
                 groupCommand = groupCommand.DeleteLastCharacter();
             return new ElementsGroupSelector(groupCommand);
-            
         }
-
-        private string removeAttributes(string pathPart)
-        {
-            int whereAttributesStarts = pathPart.IndexOf('[');
-            bool isPartHaveAttributes = whereAttributesStarts != -1;
-
-            if (isPartHaveAttributes)
-            {
-                return pathPart.Substring(0,whereAttributesStarts);
-            }
-            
-            return pathPart;
-        }
-        
     }
 }

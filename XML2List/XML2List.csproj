@@ -51,6 +51,7 @@
     <Compile Include="PathFinder.cs" />
     <Compile Include="PathCounter.cs" />
     <Compile Include="PathParser.cs" />
+    <Compile Include="PathTools.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ElementsGroupSelector.cs" />
   </ItemGroup>
