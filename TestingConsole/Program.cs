@@ -88,21 +88,33 @@ namespace TestingConsole
                 a = elementsSelector.SelectItems(a);
             }
 
+            Console.Clear();
+
+            foreach (var itemCommand in cl.ItemSelectCommands)
+            {
+                    Console.Write(itemCommand.Value + ";");
+            }
+            Console.WriteLine();
 
             foreach (var xElement in a.Take(10))
             {
+                
                 foreach (var itemCommand in cl.ItemSelectCommands)
                 {
                     XElement xe = itemCommand.SelectItem(xElement);
                     if(xe != null)
                     {
-                        Console.WriteLine(xe.Name + " -> " + xe.Value);
+                        Console.Write(xe.Value +";" );
+                    }
+                    else
+                    {
+                        Console.Write(";");
                     }
                    
                 }
             //    if(aa.Length == 1)
             //    Console.WriteLine(xElement.Name + " -> " + xElement.Value);
-                Console.WriteLine("---");
+                Console.WriteLine();
             }
 #endif
 
