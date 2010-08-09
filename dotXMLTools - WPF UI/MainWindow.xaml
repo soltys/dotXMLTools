@@ -1,8 +1,6 @@
-﻿<Window x:Class="dotXMLToolsGUI.MainWindow"
+﻿<Window x:Class="dotXMLToolsWPF.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:local="clr-namespace:dotXMLToolsGUI"
-        Title="dotXMLTools" Height="350" Width="525">
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:dotXMLToolsWPF="clr-namespace:dotXMLToolsWPF" Title="dotXMLTools" Height="350" Width="525">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="25" />
@@ -16,7 +14,7 @@
                 <MenuItem Header="Wyjście"></MenuItem>
             </MenuItem>
         </Menu>
-        <local:ElementsBar Grid.Row="1"></local:ElementsBar>
+        <dotXMLToolsWPF:ElementsBar Grid.Row="1"></dotXMLToolsWPF:ElementsBar>
     </Grid>
 
 </Window>
