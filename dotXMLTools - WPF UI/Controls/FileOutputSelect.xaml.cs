@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Microsoft.Win32;
 
 namespace dotXMLToolsWPF.Controls
 {
@@ -22,6 +23,19 @@ namespace dotXMLToolsWPF.Controls
         public FileOutputSelect()
         {
             InitializeComponent();
+        }
+        public string OutputFilePath { get { return tbOutputFilePath.Text; } }
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = @"XML Files(*.txt,*.csv)|*.txt;*.csv";
+            openFileDialog.CheckFileExists = true;
+            openFileDialog.Multiselect = false;
+
+            if (openFileDialog.ShowDialog() == true)
+            {
+                tbOutputFilePath.Text = openFileDialog.FileName;
+            }
         }
     }
 }

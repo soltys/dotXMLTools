@@ -12,7 +12,7 @@
         <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
         <Label Grid.Column="0" Margin="5">Plik zapisu danych</Label>
-        <TextBox Grid.Column="1" Margin="5"></TextBox>
-        <Button Grid.Column="2" Margin="5">Wybierz plik</Button>
+        <TextBox Grid.Column="1" Margin="5" Name="tbOutputFilePath"></TextBox>
+        <Button Grid.Column="2" Margin="5" Click="Button_Click">Wybierz plik</Button>
     </Grid>
 </UserControl>
