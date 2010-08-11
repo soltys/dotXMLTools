@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:dotXMLToolsWPF="clr-namespace:dotXMLToolsWPF.Controls" 
         Title="dotXMLTools"     
-        Height="600" Width="800" >    
+        Height="600" Width="800" Loaded="Window_Loaded">    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -22,8 +22,9 @@
         <!--File Output Selection-->
         <dotXMLToolsWPF:FileOutputSelect x:Name="fileoutput" Grid.Row="1"></dotXMLToolsWPF:FileOutputSelect>        
         <!-- Place for Element Bar-->
-        
-        <Button Grid.Row="4">Twórz listę</Button>
+        <ListBox Name="listBox" Grid.Row="3" SelectionMode="Multiple" />
+        <Button Grid.Row="4" Click="Button_Click">Twórz listę</Button>
+      
     </Grid>
     
 </Window>

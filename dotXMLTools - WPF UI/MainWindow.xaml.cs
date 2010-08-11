@@ -1,6 +1,10 @@
-﻿using System.Windows;
+﻿using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Windows;
+using System.Xml.Linq;
 using Microsoft.Win32;
-
+using XML2List;
 namespace dotXMLToolsWPF
 {
     /// <summary>
@@ -8,6 +12,8 @@ namespace dotXMLToolsWPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        List<string> goomba = new List<string>();
+        private XDocument xDocument = null;
         public MainWindow()
         {
             InitializeComponent();
@@ -27,9 +33,28 @@ namespace dotXMLToolsWPF
             openFileDialog.CheckFileExists = true;
             openFileDialog.Multiselect = false;
 
+            
             if(openFileDialog.ShowDialog() == true)
             {
-                MessageBox.Show(openFileDialog.FileName);
+                xDocument = XDocument.Load(openFileDialog.FileName);
+                PathFinder pf = new PathFinder(xDocument.Root);
+                listBox.ItemsSource = pf.PathCounter.Keys;
+            }
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            using (StreamWriter writer = new StreamWriter(fileoutput.OutputFilePath))
+            {
+                XML2List.XML2List xml2List = new XML2List.XML2List(xDocument);
+                var convertSelectList = listBox.SelectedItems.Cast<string>().ToArray();
+                xml2List.MakeList(writer,convertSelectList);
+                MessageBox.Show("Lista została zapisana w pliku: " + fileoutput.OutputFilePath);
             }
         }
     }
