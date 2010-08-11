@@ -55,68 +55,15 @@ namespace TestingConsole
             } while (cki.Key != ConsoleKey.S);
 
 #endif
-            PathParser pp = new PathParser();
 
             string[] aa = getSelectedLines(selection);
-            CommandLists cl = pp.ParsePaths(aa);
-            
             Console.Clear();
+            XML2List.XML2List xml2List = new XML2List.XML2List(root);
+            xml2List.MakeList(Console.Out,aa);
             
-            foreach (var command in cl.GroupSelectCommands)
-            {
-                Console.WriteLine(command.Value);
-                Console.WriteLine(command.ToString());
-                Console.WriteLine("----");
-            }
-            
+  
 
 
-            foreach (var command in cl.ItemSelectCommands)
-            {
-                Console.WriteLine(command.Value);
-                Console.WriteLine(command.ToString());
-                Console.WriteLine("----");
-            }
-
-#if true       
-            IEnumerable<XElement> a = root.Elements();
-
-            for (int index = 1; index < cl.GroupSelectCommands.Count; index++)
-            {
-                var elementsSelector = cl.GroupSelectCommands[index];
-                Console.WriteLine("using a " + elementsSelector.Value);
-                a = elementsSelector.SelectItems(a);
-            }
-
-            Console.Clear();
-
-            foreach (var itemCommand in cl.ItemSelectCommands)
-            {
-                    Console.Write(itemCommand.Value + ";");
-            }
-            Console.WriteLine();
-
-            foreach (var xElement in a.Take(10))
-            {
-                
-                foreach (var itemCommand in cl.ItemSelectCommands)
-                {
-                    XElement xe = itemCommand.SelectItem(xElement);
-                    if(xe != null)
-                    {
-                        Console.Write(xe.Value +";" );
-                    }
-                    else
-                    {
-                        Console.Write(";");
-                    }
-                   
-                }
-            //    if(aa.Length == 1)
-            //    Console.WriteLine(xElement.Name + " -> " + xElement.Value);
-                Console.WriteLine();
-            }
-#endif
 
         }
 
