@@ -8,6 +8,7 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <Menu Grid.Row="0">
             <MenuItem Header="Plik">
@@ -19,6 +20,7 @@
         
         <dotXMLToolsWPF:FileOutputSelect Grid.Row="1"></dotXMLToolsWPF:FileOutputSelect>        
         <!-- Place for Element Bar-->
+        <Button Grid.Row="4">Twórz listę</Button>
     </Grid>
-
+    
 </Window>
