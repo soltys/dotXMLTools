@@ -9,25 +9,24 @@ using XML2List.Interface;
 
 namespace TestingConsole
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
 #if true
             XDocument root = XDocument.Load(@"d:\pawel\xmlText\baza.xml");
             PathFinder pc = new PathFinder(root.Root);
-            Dictionary<string,int> selection = new Dictionary<string, int>();
+            Dictionary<string, int> selection = new Dictionary<string, int>();
 
             foreach (var s in pc.PathCounter)
             {
-                selection.Add(s.Key,0);
+                selection.Add(s.Key, 0);
             }
             ConsoleKeyInfo cki = new ConsoleKeyInfo();
             int position = 0;
-            
+
             do
             {
-                
                 Console.Clear();
                 PrintOutView(pc, selection);
                 Console.CursorLeft = 1;
@@ -45,12 +44,10 @@ namespace TestingConsole
                             position--;
                         }
                         break;
-                        
+
                     case ConsoleKey.DownArrow:
                         position++;
                         break;
-                        
-
                 }
             } while (cki.Key != ConsoleKey.S);
 
@@ -59,18 +56,13 @@ namespace TestingConsole
             string[] aa = getSelectedLines(selection);
             Console.Clear();
             XML2List.XML2List xml2List = new XML2List.XML2List(root);
-            xml2List.MakeList(Console.Out,aa);
-            
-  
-
-
-
+            xml2List.MakeList(Console.Out, aa);
         }
 
         private static string[] getSelectedLines(Dictionary<string, int> selection)
         {
-            List<string > listToReturn = new List<string>();
-            foreach (var i in selection.Where(x=>x.Value == 1))
+            List<string> listToReturn = new List<string>();
+            foreach (var i in selection.Where(x => x.Value == 1))
             {
                 listToReturn.Add(i.Key);
             }
@@ -94,7 +86,5 @@ namespace TestingConsole
                 Console.Write("] " + car.Key + " (" + car.Value + ")" + Environment.NewLine);
             }
         }
-
-        
     }
 }
