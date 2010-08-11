@@ -1,10 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Windows;
 using System.Xml.Linq;
 using Microsoft.Win32;
 using XML2List;
+using MyExtensions;
 namespace dotXMLToolsWPF
 {
     /// <summary>
@@ -49,10 +51,20 @@ namespace dotXMLToolsWPF
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+           
+
+            if (xDocument == null)
+            {
+                MessageBox.Show("Nie wczytano pliku XML");
+                return;
+            }
+            var convertSelectList = listBox.SelectedItems.Cast<string>().ToArray();
+           
+
             using (StreamWriter writer = new StreamWriter(fileoutput.OutputFilePath))
             {
                 XML2List.XML2List xml2List = new XML2List.XML2List(xDocument);
-                var convertSelectList = listBox.SelectedItems.Cast<string>().ToArray();
+                
                 xml2List.MakeList(writer,convertSelectList);
                 MessageBox.Show("Lista została zapisana w pliku: " + fileoutput.OutputFilePath);
             }
