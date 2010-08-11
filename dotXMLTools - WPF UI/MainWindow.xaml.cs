@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using Microsoft.Win32;
 
 namespace dotXMLToolsWPF
 {
@@ -10,6 +11,26 @@ namespace dotXMLToolsWPF
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+
+        private void MenuItem_File_Exit_Click(object sender, RoutedEventArgs e)
+        {
+            Application application = App.Current;
+            application.Shutdown();
+        }
+
+        private void MenuItem_File_Open_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = @"XML Files(*.xml)|*.xml";
+            openFileDialog.CheckFileExists = true;
+            openFileDialog.Multiselect = false;
+
+            if(openFileDialog.ShowDialog() == true)
+            {
+                MessageBox.Show(openFileDialog.FileName);
+            }
         }
     }
 }
