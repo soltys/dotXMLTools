@@ -63,9 +63,9 @@ namespace dotXMLToolsWPF
 
             using (StreamWriter writer = new StreamWriter(fileoutput.OutputFilePath))
             {
-                XML2List.XML2List xml2List = new XML2List.XML2List(xDocument);
+                XML2List.CSVListMaker csvListMaker = new XML2List.CSVListMaker(xDocument);
                 
-                xml2List.MakeCSVList(writer,convertSelectList);
+                csvListMaker.MakeList(writer,convertSelectList);
                 MessageBox.Show("Lista została zapisana w pliku: " + fileoutput.OutputFilePath);
             }
         }
