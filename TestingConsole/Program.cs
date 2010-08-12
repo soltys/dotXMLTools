@@ -15,7 +15,7 @@ namespace TestingConsole
         {
 #if true
             XDocument root = XDocument.Load(@"d:\pawel\xmlText\baza.xml");
-            PathFinder pc = new PathFinder(root.Root);
+            PathCollection pc = new PathCollection(root.Root);
             Dictionary<string, int> selection = new Dictionary<string, int>();
 
             foreach (var s in pc.PathCounter)
@@ -69,7 +69,7 @@ namespace TestingConsole
             return listToReturn.ToArray();
         }
 
-        private static void PrintOutView(PathFinder pc, Dictionary<string, int> selection)
+        private static void PrintOutView(PathCollection pc, Dictionary<string, int> selection)
         {
             foreach (var car in pc.PathCounter)
             {

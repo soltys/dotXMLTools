@@ -7,7 +7,7 @@ using MyExtensions;
 
 namespace XML2List
 {
-    public class PathFinder
+    public class PathCollection
     {
         private XElement root = null;
         private PathCounter pathCounter;
@@ -17,7 +17,7 @@ namespace XML2List
             get { return pathCounter; }
         }
 
-        public PathFinder(XElement root)
+        public PathCollection(XElement root)
         {
             this.root = root;
             pathCounter = new PathCounter();

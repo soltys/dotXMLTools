@@ -8,7 +8,7 @@ using XML2List.Interface;
 namespace XML2List
 {
     /// <summary>
-    /// Changes paths collected by PathFinder into commands for selecting items
+    /// Changes paths collected by PathCollection into commands for selecting items
     /// </summary>
     public class PathParser
     {

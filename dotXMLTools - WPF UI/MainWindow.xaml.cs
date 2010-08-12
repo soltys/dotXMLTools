@@ -39,7 +39,7 @@ namespace dotXMLToolsWPF
             if(openFileDialog.ShowDialog() == true)
             {
                 xDocument = XDocument.Load(openFileDialog.FileName);
-                PathFinder pf = new PathFinder(xDocument.Root);
+                PathCollection pf = new PathCollection(xDocument.Root);
                 listBox.ItemsSource = pf.PathCounter.Keys;
             }
         }
