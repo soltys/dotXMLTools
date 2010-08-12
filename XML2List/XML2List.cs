@@ -16,7 +16,6 @@ namespace XML2List
 
         public void MakeList(TextWriter streamOut,string[] selectedPaths)
         {
-            PathFinder pathFinder = new PathFinder(xDocument.Root);
             PathParser pathParser = new PathParser();
             CommandLists cl = pathParser.ParsePaths(selectedPaths);
 
