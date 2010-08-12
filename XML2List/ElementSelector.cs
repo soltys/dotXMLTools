@@ -19,14 +19,7 @@ namespace XML2List
         public XElement SelectItem(XElement item)
         {
             //TODO change this in something more pretty
-            string [] elementsPaths = elementPath.Split('/').Where(x => x.IsNotEmptyOrNull()).ToArray();
-            IEnumerable<XElement> collection = item.Elements(elementsPaths[0]);
-            
-            
-            for (int index = 1; index < elementsPaths.Length; index++)
-            {
-                collection = collection.Elements(elementsPaths[index]);
-            }
+            IEnumerable<XElement> collection = PathElementsTools.GetCollectionUsingPath(item,elementPath);
 
             try
             {
@@ -38,6 +31,8 @@ namespace XML2List
                 return null;
             }
         }
+
+        
 
         public string Value
         {
