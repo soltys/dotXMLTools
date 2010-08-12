@@ -65,7 +65,7 @@ namespace dotXMLToolsWPF
             {
                 XML2List.XML2List xml2List = new XML2List.XML2List(xDocument);
                 
-                xml2List.MakeList(writer,convertSelectList);
+                xml2List.MakeCSVList(writer,convertSelectList);
                 MessageBox.Show("Lista została zapisana w pliku: " + fileoutput.OutputFilePath);
             }
         }

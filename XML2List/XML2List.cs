@@ -14,7 +14,7 @@ namespace XML2List
             xDocument = xDoc;
         }
 
-        public void MakeList(TextWriter streamOut,string[] selectedPaths)
+        public void MakeCSVList(TextWriter streamOut,string[] selectedPaths)
         {
             PathParser pathParser = new PathParser();
             CommandLists cl = pathParser.ParsePaths(selectedPaths);

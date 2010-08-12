@@ -56,7 +56,7 @@ namespace TestingConsole
             string[] aa = getSelectedLines(selection);
             Console.Clear();
             XML2List.XML2List xml2List = new XML2List.XML2List(root);
-            xml2List.MakeList(Console.Out, aa);
+            xml2List.MakeCSVList(Console.Out, aa);
         }
 
         private static string[] getSelectedLines(Dictionary<string, int> selection)
