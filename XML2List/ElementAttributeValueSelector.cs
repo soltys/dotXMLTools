@@ -13,7 +13,7 @@ namespace XML2List
         private string elementPath;
         public ElementAttributeValueSelector(string elemPath,PathAttributeValueGroup[] listPAVG)
         {
-            elementPath = PathTools.removeAttributes(elemPath);
+            elementPath = PathTools.RemoveAttributes(elemPath);
             pavgArray = listPAVG;
         }
         public XElement SelectItem(XElement item)

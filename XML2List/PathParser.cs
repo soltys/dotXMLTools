@@ -47,8 +47,8 @@ namespace XML2List
         private CommandLists parseManyPaths(string[] pathsToParse)
         {
             CommandLists commands = new CommandLists();
-            string commonParent = PathTools.getCommonParent(pathsToParse);
-            pathsToParse = PathTools.filterNotCommonParent(commonParent, pathsToParse);
+            string commonParent = PathTools.GetCommonParent(pathsToParse);
+            pathsToParse = PathTools.FilterNotCommonParent(commonParent, pathsToParse);
 
             commands = createCommands(pathsToParse, commonParent);
             return commands;
@@ -80,20 +80,20 @@ namespace XML2List
         
         private IItemSelect getItemCommand(string pathPart)
         {
-            string attiributes = PathTools.getAttributes(pathPart);
+            string attiributes = PathTools.GetAttributes(pathPart);
             if(attiributes == null)
                 return new ElementSelector(pathPart);
 
             PathAttributeValueGroup[] pavg = PathTools.GetAttributeValue(attiributes);
 
             return new ElementAttributeValueSelector(
-                PathTools.removeAttributes(pathPart),
+                PathTools.RemoveAttributes(pathPart),
                 pavg);
         }
 
         private IElementGroupSelect getGroupCommand(string pathPart)
         {
-            string groupCommand = PathTools.removeAttributes(pathPart);
+            string groupCommand = PathTools.RemoveAttributes(pathPart);
             return new ElementsGroupSelector(groupCommand);
         }
     }

@@ -6,17 +6,16 @@ using MyExtensions;
 
 namespace XML2List
 {
-    static class PathTools
+    internal static class PathTools
     {
-
-        private static string removeBrackets(string attributePart)
+        private static string RemoveBrackets(string attributePart)
         {
             attributePart = attributePart.Replace("[", "");
             attributePart = attributePart.Replace("]", "");
             return attributePart;
         }
 
-        public static string getAttributes(string pathPart)
+        public static string GetAttributes(string pathPart)
         {
             int whereAttributesStarts = pathPart.IndexOf('[');
             bool isPartHaveAttributes = whereAttributesStarts != -1;
@@ -30,14 +29,15 @@ namespace XML2List
                 return null;
             }
         }
+
         public static PathAttributeValueGroup[] GetAttributeValue(string attributePart)
         {
-            attributePart = PathTools.removeBrackets(attributePart);
+            attributePart = PathTools.RemoveBrackets(attributePart);
             List<PathAttributeValueGroup> list = new List<PathAttributeValueGroup>();
-            foreach(var attrVal in attributePart.Split(';').Where(x => x.IsNotEmptyOrNull()))
+            foreach (var attrVal in attributePart.Split(';').Where(x => x.IsNotEmptyOrNull()))
             {
                 string[] splitted = attrVal.Split('=');
-                if(splitted.Length == 2)
+                if (splitted.Length == 2)
                 {
                     PathAttributeValueGroup pavg = new PathAttributeValueGroup();
                     pavg.Attribute = splitted[0];
@@ -47,12 +47,8 @@ namespace XML2List
             }
             return list.ToArray();
         }
-        public static bool containsValue(string attribute)
-        {
-            return attribute.Contains("=");
-        }
 
-        public static string removeAttributes(string pathPart)
+        public static string RemoveAttributes(string pathPart)
         {
             int whereAttributesStarts = pathPart.IndexOf('[');
             bool isPartHaveAttributes = whereAttributesStarts != -1;
@@ -65,7 +61,7 @@ namespace XML2List
             return pathPart;
         }
 
-        public static string[] filterNotCommonParent(string commonParent, string[] pathsToParse)
+        public static string[] FilterNotCommonParent(string commonParent, string[] pathsToParse)
         {
             for (int i = 0; i < pathsToParse.Length; i++)
             {
@@ -75,20 +71,20 @@ namespace XML2List
             return pathsToParse;
         }
 
-        public static string getCommonParent(string[] restPathToParse)
+        public static string GetCommonParent(string[] restPathToParse)
         {
             string range = "";
             string basePath = restPathToParse[0];
             foreach (var nextElement in basePath.Split('/').Where(x => x.IsNotEmptyOrNull()))
             {
-                if (!checkCommonParent(range + "/" + nextElement, restPathToParse))
+                if (!CheckCommonParent(range + "/" + nextElement, restPathToParse))
                     break;
                 range = range + "/" + nextElement;
             }
             return range;
         }
 
-        public static bool checkCommonParent(string commonParrent, string[] restPathToParse)
+        public static bool CheckCommonParent(string commonParrent, string[] restPathToParse)
         {
             bool isCommonParrent = true;
             foreach (var path in restPathToParse)
