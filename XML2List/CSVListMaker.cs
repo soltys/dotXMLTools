@@ -29,7 +29,7 @@ namespace XML2List
 
             foreach (var itemCommand in cl.ItemSelectCommands)
             {
-                streamOut.Write(itemCommand.Value + ";");
+                streamOut.Write(itemCommand.Name + ";");
             }
             streamOut.WriteLine();
 

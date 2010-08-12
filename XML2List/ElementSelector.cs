@@ -34,7 +34,7 @@ namespace XML2List
 
         
 
-        public string Value
+        public string Name
         {
             get { return elementPath; }
         }

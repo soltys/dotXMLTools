@@ -40,7 +40,7 @@ namespace XML2List
             }
         }
        
-        public string Value
+        public string Name
         {
             get { return string.Format("{0} {1}", elementPath, pavgArray.ToString()); }
         }

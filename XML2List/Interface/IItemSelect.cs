@@ -10,6 +10,6 @@ namespace XML2List.Interface
     {
         XElement SelectItem(XElement item);
 
-        string Value { get; }
+        string Name { get; }
     }
 }

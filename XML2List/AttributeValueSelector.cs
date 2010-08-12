@@ -27,7 +27,7 @@ namespace XML2List
             return null;
         }
 
-        public string Value
+        public string Name
         {
             get { return attribute + "=" + value; }
         }
