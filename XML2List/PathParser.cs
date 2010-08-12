@@ -77,10 +77,18 @@ namespace XML2List
             return commands;
         }
 
-        //TODO Add Attribute commmands creation
+        
         private IItemSelect getItemCommand(string pathPart)
         {
-            return new ElementSelector(pathPart);
+            string attiributes = PathTools.getAttributes(pathPart);
+            if(attiributes == null)
+                return new ElementSelector(pathPart);
+
+            PathAttributeValueGroup[] pavg = PathTools.GetAttributeValue(attiributes);
+
+            return new ElementAttributeValueSelector(
+                PathTools.removeAttributes(pathPart),
+                pavg);
         }
 
         private IElementGroupSelect getGroupCommand(string pathPart)

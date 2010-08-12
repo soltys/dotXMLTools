@@ -9,7 +9,7 @@ namespace XML2List
     static class PathTools
     {
 
-        public static string removeBrackets(string attributePart)
+        private static string removeBrackets(string attributePart)
         {
             attributePart = attributePart.Replace("[", "");
             attributePart = attributePart.Replace("]", "");
@@ -30,7 +30,23 @@ namespace XML2List
                 return null;
             }
         }
-
+        public static PathAttributeValueGroup[] GetAttributeValue(string attributePart)
+        {
+            attributePart = PathTools.removeBrackets(attributePart);
+            List<PathAttributeValueGroup> list = new List<PathAttributeValueGroup>();
+            foreach(var attrVal in attributePart.Split(';').Where(x => x.IsNotEmptyOrNull()))
+            {
+                string[] splitted = attrVal.Split('=');
+                if(splitted.Length == 2)
+                {
+                    PathAttributeValueGroup pavg = new PathAttributeValueGroup();
+                    pavg.Attribute = splitted[0];
+                    pavg.Value = splitted[1];
+                    list.Add(pavg);
+                }
+            }
+            return list.ToArray();
+        }
         public static bool containsValue(string attribute)
         {
             return attribute.Contains("=");

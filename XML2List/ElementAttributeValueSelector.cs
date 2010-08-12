@@ -9,14 +9,12 @@ namespace XML2List
 {
     class ElementAttributeValueSelector:IItemSelect
     {
-        private string[] attribute;
-        private string[] value;
+        private PathAttributeValueGroup[] pavgArray;
         private string elementPath;
-        public ElementAttributeValueSelector(string elemPath,string[] attr,string[] val)
+        public ElementAttributeValueSelector(string elemPath,PathAttributeValueGroup[] listPAVG)
         {
-            attribute = attr;
-            value = val;
             elementPath = PathTools.removeAttributes(elemPath);
+            pavgArray = listPAVG;
         }
         public XElement SelectItem(XElement item)
         {
@@ -24,8 +22,16 @@ namespace XML2List
 
             try
             {
-                XElement returnElement = collection.First();
-               return returnElement;
+                foreach (var element in collection)
+                    foreach (var pavg in pavgArray)
+                    {
+                        if (element.Attribute(pavg.Attribute) != null && element.Attribute(pavg.Attribute).Value == pavg.Value)
+                        {
+                            return element;
+                        }
+                    }
+
+                return null;
             }
             catch (Exception)
             {
@@ -36,7 +42,7 @@ namespace XML2List
        
         public string Value
         {
-            get { return string.Format("{0} {1} {2}", elementPath, attribute, value); }
+            get { return string.Format("{0} {1}", elementPath, pavgArray.ToString()); }
         }
     }
 }

@@ -49,6 +49,7 @@
     <Compile Include="Interface\IElementGroupSelect.cs" />
     <Compile Include="Interface\IItemSelect.cs" />
     <Compile Include="Interface\IListMaking.cs" />
+    <Compile Include="PathAttributeValueGroup.cs" />
     <Compile Include="PathCollection.cs" />
     <Compile Include="PathCounter.cs" />
     <Compile Include="PathElementsTools.cs" />
