@@ -42,7 +42,16 @@ namespace XML2List
        
         public string Name
         {
-            get { return string.Format("{0} {1}", elementPath, pavgArray.ToString()); }
+            get
+            {
+                string AttributePart = "[";
+                foreach (var pavg in pavgArray)
+                {
+                    AttributePart = AttributePart + pavg.ToString();
+                }
+                AttributePart = AttributePart + "]";
+                return string.Format("{0}{1}", elementPath, AttributePart);
+            }
         }
     }
 }

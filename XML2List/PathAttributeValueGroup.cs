@@ -5,9 +5,14 @@ using System.Text;
 
 namespace XML2List
 {
-    struct PathAttributeValueGroup
+    class PathAttributeValueGroup
     {
         public string Attribute { get; set; }
         public string Value { get; set; }
+
+        public override string ToString()
+        {
+            return Attribute + "=" + Value;
+        }
     }
 }
