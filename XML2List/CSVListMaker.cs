@@ -33,7 +33,7 @@ namespace XML2List
             }
             streamOut.WriteLine();
 
-            foreach (var xElement in a.Take(10))
+            foreach (var xElement in a)
             {
 
                 foreach (var itemCommand in cl.ItemSelectCommands)
@@ -47,7 +47,6 @@ namespace XML2List
                     {
                         streamOut.Write(";");
                     }
-
                 }
                 streamOut.WriteLine();
             }

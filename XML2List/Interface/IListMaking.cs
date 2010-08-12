@@ -6,7 +6,7 @@ using System.Text;
 
 namespace XML2List.Interface
 {
-    interface IListMaking
+    public interface IListMaking
     {
         void MakeList(TextWriter streamOut, string[] selectedPaths);
     }

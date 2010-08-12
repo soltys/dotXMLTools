@@ -6,6 +6,7 @@ using System.Windows;
 using System.Xml.Linq;
 using Microsoft.Win32;
 using XML2List;
+using XML2List.Interface;
 using MyExtensions;
 namespace dotXMLToolsWPF
 {
@@ -63,8 +64,7 @@ namespace dotXMLToolsWPF
 
             using (StreamWriter writer = new StreamWriter(fileoutput.OutputFilePath))
             {
-                XML2List.CSVListMaker csvListMaker = new XML2List.CSVListMaker(xDocument);
-                
+                IListMaking csvListMaker = new CSVListMaker(xDocument);
                 csvListMaker.MakeList(writer,convertSelectList);
                 MessageBox.Show("Lista została zapisana w pliku: " + fileoutput.OutputFilePath);
             }
