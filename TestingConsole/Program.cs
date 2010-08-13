@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Xml.Linq;
@@ -8,22 +9,23 @@ using XML2List.Interface;
 
 namespace TestingConsole
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
-            XDocument root = XDocument.Load(@"d:\pawel\xmlText\ulice.xml");
-            PathFinder pc = new PathFinder(root.Root);
+XDocument root = XDocument.Load(@"d:\pawel\xmlText\baza.xml");
+            PathCollection pc = new PathCollection(root.Root);
+            Dictionary<string, int> selection = new Dictionary<string, int>();
+            XDocument root = XDocument.Load(@"d:\pawel\xmlText\baza.xml");
+            PathCollection pc = new PathCollection(root.Root);
+            Dictionary<string, int> selection = new Dictionary<string, int>();
 
             foreach (var s in pc.PathCounter)
             {
-                Console.WriteLine(s.Key + " " + s.Value);
+                selection.Add(s.Key, 0);
             }
-
-            string lineToParse = "/teryt/catalog/row/col[name=WOZ]";
-            PathParser pp = new PathParser();
-            CommandLists cl = pp.ParsePath(lineToParse);
-
+ConsoleKeyInfo cki = new ConsoleKeyInfo();
+            int position = 0;
 
             foreach (var command in cl.GroupSelectCommands)
             {
@@ -44,22 +46,67 @@ namespace TestingConsole
 
             /*
 
-            IEnumerable<XElement> a = root.Elements();
-
-            for (int index = 1; index < l.Count; index++)
+            do
             {
-                var elementsSelector = l[index];
-                Console.WriteLine("using a " + elementsSelector.Value);
-                a = elementsSelector.SelectItems(a);
-            }
+                Console.Clear();
+PrintOutView(pc, selection);
 
-
-            foreach (var xElement in a)
-            {
-                foreach (var element in xElement.Elements("col")) 
-                    //spianie w jedno naprzykład w postać XML'A
+                Console.CursorLeft = 1;
+                Console.CursorTop = position;
+                cki = Console.ReadKey(true);
+                switch (cki.Key)
                 {
-                    Console.WriteLine(element.Name + " " + element.Value);    
+                    case ConsoleKey.Enter:
+                    case ConsoleKey.Spacebar:
+                        selection[pc.PathCounter.Take(position + 1).Last().Key] = 1;
+                        break;
+                    case ConsoleKey.UpArrow:
+                        if (position > 0)
+                        {
+                            position--;
+                        }
+                        break;
+
+                    case ConsoleKey.DownArrow:
+                        position++;
+                        break;
+                }
+            } while (cki.Key != ConsoleKey.S);
+
+#endif
+
+            string[] aa = getSelectedLines(selection);
+            Console.Clear();
+            XML2List.CSVListMaker csvListMaker = new XML2List.CSVListMaker(root);
+            csvListMaker.MakeList(Console.Out, aa);
+        }
+
+        private static string[] getSelectedLines(Dictionary<string, int> selection)
+        {
+ List<string> listToReturn = new List<string>();
+            foreach (var i in selection.Where(x => x.Value == 1))
+            {
+                listToReturn.Add(i.Key);
+
+            }
+            return listToReturn.ToArray();
+        }
+
+        private static void PrintOutView(PathCollection pc, Dictionary<string, int> selection)
+        {
+            foreach (var car in pc.PathCounter)
+            {
+                Console.Write("[");
+                switch (selection[car.Key])
+                {
+                    case 0:
+                        Console.Write(" ");
+                        break;
+                    case 1:
+                        Console.Write("&");
+                        break;
+                }
+                Console.Write("] " + car.Key + " (" + car.Value + ")" + Environment.NewLine);
                 }
                 
                 Console.WriteLine("---");

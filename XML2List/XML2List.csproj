@@ -43,15 +43,21 @@
     <Compile Include="AttributeSelector.cs" />
     <Compile Include="AttributeValueSelector.cs" />
     <Compile Include="CommandLists.cs" />
-    <Compile Include="ElementsSelector.cs" />
+    <Compile Include="ElementAttributeValueSelector.cs" />
+    <Compile Include="ElementSelector.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="Interface\IElementGroupSelect.cs" />
     <Compile Include="Interface\IItemSelect.cs" />
-    <Compile Include="PathFinder.cs" />
+    <Compile Include="Interface\IListMaking.cs" />
+    <Compile Include="PathAttributeValueGroup.cs" />
+    <Compile Include="PathCollection.cs" />
     <Compile Include="PathCounter.cs" />
+    <Compile Include="PathElementsTools.cs" />
     <Compile Include="PathParser.cs" />
+    <Compile Include="PathTools.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ElementsGroupSelector.cs" />
+    <Compile Include="CSVListMaker.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Extensions\Extensions.csproj">

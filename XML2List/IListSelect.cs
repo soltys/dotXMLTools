@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Xml.Linq;
-
-namespace XML2List.Interface
+namespace XML2List
 {
-    public interface IItemSelect
+    public interface IListSelect
     {
-        XElement SelectItem(XElement item);
-
+        IEnumerable<XElement> SelectItems(IEnumerable<XElement> listofXElements);
         string Name { get; }
     }
 }

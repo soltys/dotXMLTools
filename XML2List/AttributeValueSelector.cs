@@ -18,12 +18,16 @@ namespace XML2List
             this.value = value;
         }
 
-        public bool SelectItem(XElement item)
+        public XElement SelectItem(XElement item)
         {
-            throw new NotImplementedException();
+            if (item.Attribute(attribute) != null && item.Attribute(attribute).Value == value)
+            {
+                return item;
+            }
+            return null;
         }
 
-        public string Value
+        public string Name
         {
             get { return attribute + "=" + value; }
         }

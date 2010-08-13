@@ -4,23 +4,72 @@ using System.Linq;
 using System.Text;
 using MyExtensions;
 using XML2List.Interface;
+
 namespace XML2List
 {
+    /// <summary>
+    /// Changes paths collected by PathCollection into commands for selecting items
+    /// </summary>
     public class PathParser
     {
-        public CommandLists ParsePath(string pathToParse)
+        public CommandLists ParsePaths(string[] pathsToParse)
         {
-            string[] pathSplitElements = pathToParse.Split('/');
+            if (pathsToParse.Length == 0)
+                throw new ArgumentException("Array is empty");
+
+            CommandLists commands = new CommandLists();
+            if (pathsToParse.Length == 1)
+            {
+                commands = parseOnePath(pathsToParse);
+            }
+            else
+            {
+                commands = parseManyPaths(pathsToParse);
+            }
+
+            return commands;
+        }
+
+        private CommandLists parseOnePath(string[] pathsToParse)
+        {
             CommandLists commands = new CommandLists();
 
-            foreach(string pathPart in pathSplitElements.Where( x=> x.IsNotEmptyOrNull()))
+            string commonParent = pathsToParse[0];
+            commonParent = commonParent.Substring(0, commonParent.LastIndexOf('/')); //this deleting last groupCommand
+
+            pathsToParse[0] = pathsToParse[0].Split('/').Last();
+
+            commands = createCommands(pathsToParse, commonParent);
+
+            return commands;
+        }
+
+        private CommandLists parseManyPaths(string[] pathsToParse)
+        {
+            CommandLists commands = new CommandLists();
+            string commonParent = PathTools.GetCommonParent(pathsToParse);
+            pathsToParse = PathTools.FilterNotCommonParent(commonParent, pathsToParse);
+
+            commands = createCommands(pathsToParse, commonParent);
+            return commands;
+        }
+
+
+        private CommandLists createCommands(string[] pathsToParse, string commonParent)
+        {
+            CommandLists commands = new CommandLists();
+            string[] pathSplitElements = commonParent.Split('/');
+
+            foreach (string pathPart in pathSplitElements.Where(x => x.IsNotEmptyOrNull()))
             {
                 IElementGroupSelect groupCommand = getGroupCommand(pathPart);
-                IItemSelect itemCommand = getItemCommand(pathPart);
-
                 if (groupCommand.IsNotNull())
                     commands.GroupSelectCommands.Add(groupCommand);
+            }
 
+            foreach (var pathPart in pathsToParse)
+            {
+                IItemSelect itemCommand = getItemCommand(pathPart);
                 if (itemCommand.IsNotNull())
                     commands.ItemSelectCommands.Add(itemCommand);
             }
@@ -28,79 +77,24 @@ namespace XML2List
             return commands;
         }
 
+        
         private IItemSelect getItemCommand(string pathPart)
         {
-            string attributePart = getAttributes(pathPart);
+            string attiributes = PathTools.GetAttributes(pathPart);
+            if(attiributes == null)
+                return new ElementSelector(pathPart);
 
-            if (attributePart == null)
-                return null;
+            PathAttributeValueGroup[] pavg = PathTools.GetAttributeValue(attiributes);
 
-            string[] attributes = removeBrackets(attributePart).Split(';');
-            foreach (var attribute in attributes)
-            {
-                if(containsValue(attribute))
-                {
-                    string[] attributeValue = attribute.Split('=');
-                    return new AttributeValueSelector(attributeValue[0], attributeValue[1]);
-                }
-                else
-                {
-                    return new AttributeSelector(attribute);
-                }
-                
-            }
-            return null;
-        }
-
-        private bool containsValue(string attribute)
-        {
-            return attribute.Contains("=");
-        }
-
-        private string removeBrackets(string attributePart)
-        {
-            attributePart = attributePart.Replace("[", "");
-            attributePart = attributePart.Replace("]", "");
-            return attributePart;
-        }
-
-        private string getAttributes(string pathPart)
-        {
-            int whereAttributesStarts = pathPart.IndexOf('[');
-            bool isPartHaveAttributes = whereAttributesStarts != -1;
-
-            if (isPartHaveAttributes)
-            {
-                return pathPart.Substring(whereAttributesStarts, pathPart.Length - whereAttributesStarts);
-            }
-            else
-            {
-                return null;
-            }
+            return new ElementAttributeValueSelector(
+                PathTools.RemoveAttributes(pathPart),
+                pavg);
         }
 
         private IElementGroupSelect getGroupCommand(string pathPart)
         {
-            string groupCommand = deleteAttributes(pathPart);
+            string groupCommand = PathTools.RemoveAttributes(pathPart);
             return new ElementsGroupSelector(groupCommand);
-            
         }
-
-        private string deleteAttributes(string pathPart)
-        {
-            int whereAttributesStarts = pathPart.IndexOf('[');
-            bool isPartHaveAttributes = whereAttributesStarts != -1;
-
-            if (isPartHaveAttributes)
-            {
-                return pathPart.Substring(0,whereAttributesStarts);
-            }
-            else
-            {
-                return pathPart;
-            }
-        }
-
-        
     }
 }

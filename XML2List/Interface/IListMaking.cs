@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
-using System.Xml.Linq;
 
 namespace XML2List.Interface
 {
-    public interface IItemSelect
+    public interface IListMaking
     {
-        XElement SelectItem(XElement item);
-
-        string Name { get; }
+        void MakeList(TextWriter streamOut, string[] selectedPaths);
     }
 }
