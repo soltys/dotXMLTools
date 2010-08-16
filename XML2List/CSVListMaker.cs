@@ -5,17 +5,19 @@ using System.Text;
 using System.Xml.Linq;
 using System.IO;
 using XML2List.Interface;
+
 namespace XML2List
 {
     public class CSVListMaker : IListMaking
     {
         private XDocument xDocument;
+
         public CSVListMaker(XDocument xDoc)
         {
             xDocument = xDoc;
         }
 
-        public void MakeList(TextWriter streamOut,string[] selectedPaths)
+        public void MakeList(TextWriter streamOut, string[] selectedPaths)
         {
             PathParser pathParser = new PathParser();
             CommandLists cl = pathParser.ParsePaths(selectedPaths);
@@ -35,7 +37,6 @@ namespace XML2List
 
             foreach (var xElement in a)
             {
-
                 foreach (var itemCommand in cl.ItemSelectCommands)
                 {
                     XElement xe = itemCommand.SelectItem(xElement);
