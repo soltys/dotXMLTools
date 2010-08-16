@@ -22,7 +22,7 @@
         <!--File Output Selection-->
         <dotXMLToolsWPF:FileOutputSelect x:Name="fileoutput" Grid.Row="1"></dotXMLToolsWPF:FileOutputSelect>        
         <!-- Place for Element Bar-->
-        <ListBox Name="listBox" Grid.Row="3" SelectionMode="Multiple" />
+        <dotXMLToolsWPF:PathSelect x:Name="PathSelector" Grid.Row="3"/>
         <Button Grid.Row="4" Click="Button_Click">Twórz listę</Button>
         
     </Grid>

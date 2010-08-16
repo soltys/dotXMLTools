@@ -15,7 +15,8 @@ namespace dotXMLToolsWPF
     /// </summary>
     public partial class MainWindow : Window
     {
-        List<string> goomba = new List<string>();
+        
+        private List<PathSelection> pathSelection = new List<PathSelection>();
         private XDocument xDocument = null;
         public MainWindow()
         {
@@ -41,7 +42,12 @@ namespace dotXMLToolsWPF
             {
                 xDocument = XDocument.Load(openFileDialog.FileName);
                 PathCollection pf = new PathCollection(xDocument.Root);
-                listBox.ItemsSource = pf.PathCounter.Keys;
+
+                foreach (var path in pf.PathCounter.Keys)
+                {
+                    pathSelection.Add(new PathSelection(path));
+                }
+                PathSelector.lstView.ItemsSource = pathSelection;
             }
         }
 
@@ -59,8 +65,10 @@ namespace dotXMLToolsWPF
                 MessageBox.Show("Nie wczytano pliku XML");
                 return;
             }
-            var convertSelectList = listBox.SelectedItems.Cast<string>().ToArray();
-           
+            var convertSelectList =
+                (from path in pathSelection
+                where path.IsSelected
+                select path.Path).ToArray();
 
             using (StreamWriter writer = new StreamWriter(fileoutput.OutputFilePath))
             {
