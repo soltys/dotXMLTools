@@ -24,7 +24,7 @@
         <!-- Place for Element Bar-->
         <ListBox Name="listBox" Grid.Row="3" SelectionMode="Multiple" />
         <Button Grid.Row="4" Click="Button_Click">Twórz listę</Button>
-      
+        
     </Grid>
     
 </Window>
