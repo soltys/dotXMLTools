@@ -9,6 +9,7 @@
         <ListView Name="lstView">
             <ListView.View>
                 <GridView>
+                    <!--1st Collumn-->
                     <GridView.Columns>
                         <GridViewColumn Header="Dodać do listy" >
                             <GridViewColumn.CellTemplate>
@@ -31,8 +32,18 @@
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
-                        <GridViewColumn Header="Ścieżka"
-                                        DisplayMemberBinding="{Binding Path=Path}"/>
+
+                        <!--2nd  Collumn-->
+                        <GridViewColumn Header="Ścieżka">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <TextBlock Text="{Binding Path=Path}"></TextBlock>
+                                    </Grid>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
                     </GridView.Columns>
                 </GridView>
             </ListView.View>
