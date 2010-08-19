@@ -9,7 +9,7 @@
         <ListView Name="lstView">
             <ListView.View>
                 <GridView>
-                    <!--1st Collumn-->
+                    <!--1st Column-->
                     <GridView.Columns>
                         <GridViewColumn Header="Dodać do listy" >
                             <GridViewColumn.CellTemplate>
@@ -33,7 +33,7 @@
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
 
-                        <!--2nd  Collumn-->
+                        <!--2nd  Column-->
                         <GridViewColumn Header="Ścieżka">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
