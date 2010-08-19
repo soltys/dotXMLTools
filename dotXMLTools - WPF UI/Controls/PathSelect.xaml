@@ -14,7 +14,7 @@
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <Grid>
-                                        <Rectangle VerticalAlignment="Center" HorizontalAlignment="Center" Width="30" Height="30" Fill="White" x:Name="bg"></Rectangle>
+                                        <Rectangle VerticalAlignment="Center" HorizontalAlignment="Center" Width="30" Height="30" Fill="Transparent" x:Name="bg"></Rectangle>
                                         <CheckBox VerticalAlignment="Center" HorizontalAlignment="Center" IsChecked="{Binding Path=IsSelected}" x:Name="cb"></CheckBox>
                                     </Grid>
                                     <DataTemplate.Triggers>
@@ -23,7 +23,7 @@
                                                 <Storyboard>
                                                     <ColorAnimation Storyboard.TargetName="bg"
                                                                     Storyboard.TargetProperty="Fill.Color"
-                                                                    To="RosyBrown" Duration="0:0:1" AutoReverse="True"/>
+                                                                    To="RosyBrown" Duration="0:0:0.5" AutoReverse="True"/>
                                                 </Storyboard>
                                             </BeginStoryboard>
                                         </EventTrigger>
