@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Xml.Linq;
 using System.IO;
+using PathLibrary;
 using XML2List.Interface;
 
 namespace XML2List
@@ -19,8 +17,8 @@ namespace XML2List
 
         public void MakeList(TextWriter streamOut, string[] selectedPaths)
         {
-            PathParser pathParser = new PathParser();
-            CommandLists cl = pathParser.ParsePaths(selectedPaths);
+            PathListParser pathListParser = new PathListParser();
+            CommandLists cl = pathListParser.ParsePaths(selectedPaths);
 
             IEnumerable<XElement> a = xDocument.Elements();
             for (int index = 1; index < cl.GroupSelectCommands.Count; index++)

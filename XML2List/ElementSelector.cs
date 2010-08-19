@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Xml.Linq;
-using XML2List.Interface;
-using MyExtensions;
+using PathLibrary;
+using PathLibrary.Interface;
+
 namespace XML2List
 {
     public class ElementSelector:IItemSelect

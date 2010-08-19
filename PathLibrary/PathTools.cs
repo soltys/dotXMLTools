@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using MyExtensions;
 
-namespace XML2List
+namespace PathLibrary
 {
-    internal static class PathTools
+    public static class PathTools
     {
         private static string RemoveBrackets(string attributePart)
         {

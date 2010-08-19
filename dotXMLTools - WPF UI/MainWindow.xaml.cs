@@ -5,9 +5,11 @@ using System.Linq;
 using System.Windows;
 using System.Xml.Linq;
 using Microsoft.Win32;
+using PathLibrary;
+using PathLibrary.Interface;
 using XML2List;
 using XML2List.Interface;
-using MyExtensions;
+
 namespace dotXMLToolsWPF
 {
     /// <summary>
@@ -42,7 +44,7 @@ namespace dotXMLToolsWPF
             {
                 xDocument = XDocument.Load(openFileDialog.FileName);
                 PathCollection pf = new PathCollection(xDocument.Root);
-
+                
                 foreach (var path in pf.PathCounter.Keys)
                 {
                     pathSelection.Add(new PathSelection(path));

@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Xml.Linq;
-using MyExtensions;
-using XML2List.Interface;
+using PathLibrary;
+using PathLibrary.Interface;
+
 namespace XML2List
 {
-    class ElementAttributeValueSelector:IItemSelect
+    public class ElementAttributeValueSelector:IItemSelect
     {
         private PathAttributeValueGroup[] pavgArray;
         private string elementPath;

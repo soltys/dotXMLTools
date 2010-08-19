@@ -1,8 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using MyExtensions;
+using PathLibrary;
+using PathLibrary.Interface;
 using XML2List.Interface;
 
 namespace XML2List
@@ -10,7 +10,7 @@ namespace XML2List
     /// <summary>
     /// Changes paths collected by PathCollection into commands for selecting items
     /// </summary>
-    public class PathParser
+    public class PathListParser
     {
         public CommandLists ParsePaths(string[] pathsToParse)
         {

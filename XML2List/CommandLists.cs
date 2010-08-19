@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
+using PathLibrary.Interface;
 using XML2List.Interface;
+
 namespace XML2List
 {
     public class CommandLists

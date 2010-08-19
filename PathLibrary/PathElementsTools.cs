@@ -5,12 +5,12 @@ using System.Text;
 using System.Xml.Linq;
 using MyExtensions;
 
-namespace XML2List
+namespace PathLibrary
 {
     /// <summary>
     /// Collections of static methods which combines Path and Elements in doument tree
     /// </summary>
-    static class  PathElementsTools
+    public static class  PathElementsTools
     {
         public static IEnumerable<XElement> GetCollectionUsingPath(XElement item,string path)
         {

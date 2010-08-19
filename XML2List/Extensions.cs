@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using PathLibrary.Interface;
 using XML2List.Interface;
-namespace XML2List
+
+namespace PathLibrary
 {
     public static class Extensions
     {

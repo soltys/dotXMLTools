@@ -5,7 +5,7 @@ using System.Text;
 using System.Xml.Linq;
 using MyExtensions;
 
-namespace XML2List
+namespace PathLibrary
 {
     public class PathCollection
     {

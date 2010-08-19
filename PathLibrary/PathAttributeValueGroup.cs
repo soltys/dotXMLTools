@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace XML2List
+namespace PathLibrary
 {
-    class PathAttributeValueGroup
+    public class PathAttributeValueGroup
     {
         public string Attribute { get; set; }
         public string Value { get; set; }

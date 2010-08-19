@@ -112,6 +112,10 @@
       <Project>{1BB5F157-5EB8-46B2-AB69-CEAD034E1E9E}</Project>
       <Name>Extensions</Name>
     </ProjectReference>
+    <ProjectReference Include="..\PathLibrary\PathLibrary.csproj">
+      <Project>{13097F64-2EA4-4BAE-ABD9-899D6506E953}</Project>
+      <Name>PathLibrary</Name>
+    </ProjectReference>
     <ProjectReference Include="..\XML2List\XML2List.csproj">
       <Project>{DA0F1071-0C0A-49D7-8FD5-A76A9C980C93}</Project>
       <Name>XML2List</Name>
