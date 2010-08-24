@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using MyExtensions;
-
+[assembly: CLSCompliant(true)]
 namespace PathLibrary
 {
     public static class PathTools
