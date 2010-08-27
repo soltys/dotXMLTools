@@ -51,11 +51,7 @@ namespace dotXMLToolsWPF
                 }
                 PathSelector.lstView.ItemsSource = pathSelection;
             }
-        }
-
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            
+        
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

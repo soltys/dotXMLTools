@@ -7,13 +7,26 @@ namespace dotXMLToolsWPF
 {
     class PathSelection
     {
-        public bool IsSelected { get; set; }
+        private bool _isSelected;
+
+        public bool IsSelected
+        {
+            get { return _isSelected; }
+
+            set { _isSelected = value;
+                   SelectionChanged(new PathSelection(Path, _isSelected));}
+        }
+
         public string Path { get; set; }
+
+        public delegate void SelectionHandler(PathSelection elementChanged);
+
+        public event SelectionHandler SelectionChanged; 
 
         public PathSelection(string path, bool isSelected=false)
         {
             Path = path;
-            IsSelected =  isSelected;
+            _isSelected =  isSelected;
         }
     }
 }
