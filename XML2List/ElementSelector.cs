@@ -27,7 +27,10 @@ namespace XML2List
             }
             catch (ArgumentException)
             {
-
+                return null;
+            }
+            catch(InvalidOperationException)
+            {
                 return null;
             }
         }

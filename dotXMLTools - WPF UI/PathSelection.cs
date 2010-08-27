@@ -14,6 +14,7 @@ namespace dotXMLToolsWPF
             get { return _isSelected; }
 
             set { _isSelected = value;
+                if(SelectionChanged != null)
                    SelectionChanged(new PathSelection(Path, _isSelected));}
         }
 
