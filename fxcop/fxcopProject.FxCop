@@ -1,0 +1,538 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FxCopProject Version="10.0" Name="My FxCop Project">
+ <ProjectOptions>
+  <SharedProject>True</SharedProject>
+  <Stylesheet Apply="False">$(FxCopDir)\Xml\FxCopReport.xsl</Stylesheet>
+  <SaveMessages>
+   <Project Status="Active, Excluded, Good, Noise" NewOnly="False" />
+   <Report Status="Active, Good, Noise" NewOnly="False" />
+  </SaveMessages>
+  <ProjectFile Compress="True" DefaultTargetCheck="True" DefaultRuleCheck="True" SaveByRuleGroup="" Deterministic="True" />
+  <EnableMultithreadedLoad>True</EnableMultithreadedLoad>
+  <EnableMultithreadedAnalysis>True</EnableMultithreadedAnalysis>
+  <SourceLookup>True</SourceLookup>
+  <AnalysisExceptionsThreshold>10</AnalysisExceptionsThreshold>
+  <RuleExceptionsThreshold>1</RuleExceptionsThreshold>
+  <Spelling Locale="pl-PL" />
+  <OverrideRuleVisibilities>False</OverrideRuleVisibilities>
+  <CustomDictionaries SearchFxCopDir="True" SearchUserProfile="True" SearchProjectDir="True" />
+  <SearchGlobalAssemblyCache>False</SearchGlobalAssemblyCache>
+  <DeadlockDetectionTimeout>120</DeadlockDetectionTimeout>
+  <IgnoreGeneratedCode>False</IgnoreGeneratedCode>
+ </ProjectOptions>
+ <Targets>
+  <Target Name="$(ProjectDir)/../dotXMLTools - WPF UI/bin/Release/dotXMLTools.exe" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/../dotXMLTools - WPF UI/bin/Release/PathLibrary.dll" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/../dotXMLTools - WPF UI/bin/Release/XML2List.dll" Analyze="True" AnalyzeAllChildren="True" />
+ </Targets>
+ <Rules>
+  <RuleFiles>
+   <RuleFile Name="$(FxCopDir)\Rules\DesignRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\GlobalizationRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\InteroperabilityRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\MobilityRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\NamingRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\PerformanceRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\PortabilityRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\SecurityRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\SecurityTransparencyRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\UsageRules.dll" Enabled="True" AllRulesEnabled="True" />
+  </RuleFiles>
+  <Groups />
+  <Settings />
+ </Rules>
+ <FxCopReport Version="10.0">
+  <Namespaces>
+   <Namespace Name="dotXMLToolsWPF">
+    <Messages>
+     <Message Id="WPF" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Created="2010-08-24 16:32:21Z">
+      <Issue Name="Namespace">
+       <Item>WPF</Item>
+       <Item>dotXMLToolsWPF</Item>
+       <Item>Wpf</Item>
+      </Issue>
+     </Message>
+     <Message Id="XML" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Created="2010-08-24 16:32:21Z">
+      <Issue Name="Namespace">
+       <Item>XML</Item>
+       <Item>dotXMLToolsWPF</Item>
+       <Item>Xml</Item>
+      </Issue>
+     </Message>
+     <Message Id="dot" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Created="2010-08-24 16:32:21Z">
+      <Issue Name="Namespace">
+       <Item>dot</Item>
+       <Item>dotXMLToolsWPF</Item>
+       <Item>Dot</Item>
+      </Issue>
+     </Message>
+    </Messages>
+   </Namespace>
+   <Namespace Name="dotXMLToolsWPF.Controls">
+    <Messages>
+     <Message Id="WPF" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Created="2010-08-24 16:32:21Z">
+      <Issue Name="Namespace">
+       <Item>WPF</Item>
+       <Item>dotXMLToolsWPF.Controls</Item>
+       <Item>Wpf</Item>
+      </Issue>
+     </Message>
+     <Message Id="XML" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Created="2010-08-24 16:32:21Z">
+      <Issue Name="Namespace">
+       <Item>XML</Item>
+       <Item>dotXMLToolsWPF.Controls</Item>
+       <Item>Xml</Item>
+      </Issue>
+     </Message>
+     <Message Id="dot" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Created="2010-08-24 16:32:21Z">
+      <Issue Name="Namespace">
+       <Item>dot</Item>
+       <Item>dotXMLToolsWPF.Controls</Item>
+       <Item>Dot</Item>
+      </Issue>
+     </Message>
+    </Messages>
+   </Namespace>
+   <Namespace Name="PathLibrary.Interface">
+    <Messages>
+     <Message TypeName="AvoidNamespacesWithFewTypes" Category="Microsoft.Design" CheckId="CA1020" Created="2010-08-24 16:32:21Z">
+      <Issue>
+       <Item>PathLibrary.Interface</Item>
+      </Issue>
+     </Message>
+     <Message Id="Interface" TypeName="IdentifiersShouldNotMatchKeywords" Category="Microsoft.Naming" CheckId="CA1716" Created="2010-08-24 16:32:21Z">
+      <Issue Name="Namespace">
+       <Item>PathLibrary.Interface</Item>
+       <Item>Interface</Item>
+      </Issue>
+     </Message>
+    </Messages>
+   </Namespace>
+   <Namespace Name="XML2List">
+    <Messages>
+     <Message Id="XML" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Created="2010-08-24 16:32:21Z">
+      <Issue Name="Namespace">
+       <Item>XML</Item>
+       <Item>XML2List</Item>
+       <Item>Xml</Item>
+      </Issue>
+     </Message>
+    </Messages>
+   </Namespace>
+   <Namespace Name="XML2List.Interface">
+    <Messages>
+     <Message TypeName="AvoidNamespacesWithFewTypes" Category="Microsoft.Design" CheckId="CA1020" Created="2010-08-24 16:32:21Z">
+      <Issue>
+       <Item>XML2List.Interface</Item>
+      </Issue>
+     </Message>
+     <Message Id="XML" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Created="2010-08-24 16:32:21Z">
+      <Issue Name="Namespace">
+       <Item>XML</Item>
+       <Item>XML2List.Interface</Item>
+       <Item>Xml</Item>
+      </Issue>
+     </Message>
+     <Message Id="Interface" TypeName="IdentifiersShouldNotMatchKeywords" Category="Microsoft.Naming" CheckId="CA1716" Created="2010-08-24 16:32:21Z">
+      <Issue Name="Namespace">
+       <Item>XML2List.Interface</Item>
+       <Item>Interface</Item>
+      </Issue>
+     </Message>
+    </Messages>
+   </Namespace>
+  </Namespaces>
+  <Targets>
+   <Target Name="$(ProjectDir)/../dotXMLTools - WPF UI/bin/Release/dotXMLTools.exe">
+    <Modules>
+     <Module Name="dotxmltools.exe">
+      <Messages>
+       <Message Id="XML" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Created="2010-08-24 16:32:21Z">
+        <Issue Name="Assembly">
+         <Item>XML</Item>
+         <Item>'dotXMLTools.exe'</Item>
+         <Item>Xml</Item>
+        </Issue>
+       </Message>
+       <Message Id="dot" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Created="2010-08-24 16:32:21Z">
+        <Issue Name="Assembly">
+         <Item>dot</Item>
+         <Item>'dotXMLTools.exe'</Item>
+         <Item>Dot</Item>
+        </Issue>
+       </Message>
+       <Message TypeName="MarkAssembliesWithClsCompliant" Category="Microsoft.Design" CheckId="CA1014" Created="2010-08-24 16:32:21Z">
+        <Issue>
+         <Item>'dotXMLTools.exe'</Item>
+        </Issue>
+       </Message>
+       <Message TypeName="MarkAssembliesWithNeutralResourcesLanguage" Category="Microsoft.Performance" CheckId="CA1824" Created="2010-08-24 16:32:21Z">
+        <Issue>
+         <Item>'dotXMLTools.exe'</Item>
+        </Issue>
+       </Message>
+      </Messages>
+      <Namespaces>
+       <Namespace Name="dotXMLToolsWPF">
+        <Types>
+         <Type Name="MainWindow">
+          <Members>
+           <Member Name="#_CreateDelegate(System.Type,System.String)">
+            <Messages>
+             <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2010-08-24 16:32:21Z">
+              <Issue>
+               <Item>'MainWindow._CreateDelegate(Type, string)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#System.Windows.Markup.IComponentConnector.Connect(System.Int32,System.Object)">
+            <Messages>
+             <Message TypeName="DoNotCastUnnecessarily" Category="Microsoft.Performance" CheckId="CA1800" Created="2010-08-24 16:32:21Z">
+              <Issue Name="Parameter">
+               <Item>'target'</Item>
+               <Item>'MenuItem'</Item>
+               <Item>'MainWindow.IComponentConnector.Connect(int, object)'</Item>
+               <Item>castclass</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="InterfaceMethodsShouldBeCallableByChildTypes" Category="Microsoft.Design" CheckId="CA1033" Created="2010-08-24 16:32:21Z">
+              <Issue>
+               <Item>'MainWindow'</Item>
+               <Item>'IComponentConnector.Connect(int, object)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+       <Namespace Name="dotXMLToolsWPF.Controls">
+        <Types>
+         <Type Name="FileOutputSelect">
+          <Members>
+           <Member Name="#System.Windows.Markup.IComponentConnector.Connect(System.Int32,System.Object)">
+            <Messages>
+             <Message TypeName="InterfaceMethodsShouldBeCallableByChildTypes" Category="Microsoft.Design" CheckId="CA1033" Created="2010-08-24 16:32:21Z">
+              <Issue>
+               <Item>'FileOutputSelect'</Item>
+               <Item>'IComponentConnector.Connect(int, object)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="PathSelect">
+          <Members>
+           <Member Name="#System.Windows.Markup.IComponentConnector.Connect(System.Int32,System.Object)">
+            <Messages>
+             <Message TypeName="InterfaceMethodsShouldBeCallableByChildTypes" Category="Microsoft.Design" CheckId="CA1033" Created="2010-08-24 16:32:21Z">
+              <Issue>
+               <Item>'PathSelect'</Item>
+               <Item>'IComponentConnector.Connect(int, object)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+      </Namespaces>
+     </Module>
+    </Modules>
+   </Target>
+   <Target Name="$(ProjectDir)/../dotXMLTools - WPF UI/bin/Release/PathLibrary.dll">
+    <Modules>
+     <Module Name="pathlibrary.dll">
+      <Namespaces>
+       <Namespace Name="PathLibrary">
+        <Types>
+         <Type Name="PathCounter">
+          <Messages>
+           <Message TypeName="MarkISerializableTypesWithSerializable" Category="Microsoft.Usage" CheckId="CA2237" Created="2010-08-24 16:32:21Z">
+            <Issue>
+             <Item>'PathCounter'</Item>
+            </Issue>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name="#Add(System.String)">
+            <Messages>
+             <Message Id="string" TypeName="IdentifiersShouldNotContainTypeNames" Category="Microsoft.Naming" CheckId="CA1720" Created="2010-08-24 16:32:21Z">
+              <Issue Name="LanguageIndependentMemberParameter">
+               <Item>'PathCounter.Add(string)'</Item>
+               <Item>string</Item>
+               <Item>'stringToAdd'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="PathElementsTools">
+          <Members>
+           <Member Name="#GetCollectionUsingPath(System.Xml.Linq.XElement,System.String)">
+            <Messages>
+             <Message TypeName="ConsiderPassingBaseTypesAsParameters" Category="Microsoft.Design" CheckId="CA1011" Created="2010-08-24 16:32:21Z">
+              <Issue>
+               <Item>'item'</Item>
+               <Item>'PathElementsTools.GetCollectionUsingPath(XElement, string)'</Item>
+               <Item>'XElement'</Item>
+               <Item>'XContainer'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="PathTools">
+          <Members>
+           <Member Name="#CheckCommonParent(System.String,System.String[])">
+            <Messages>
+             <Message Id="System.String.StartsWith(System.String)" TypeName="SpecifyStringComparison" Category="Microsoft.Globalization" CheckId="CA1307" Created="2010-08-24 16:32:21Z">
+              <Issue>
+               <Item>'string.StartsWith(string)'</Item>
+               <Item>'PathTools.CheckCommonParent(string, string[])'</Item>
+               <Item>'string.StartsWith(string, StringComparison)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+      </Namespaces>
+     </Module>
+    </Modules>
+   </Target>
+   <Target Name="$(ProjectDir)/../dotXMLTools - WPF UI/bin/Release/XML2List.dll">
+    <Modules>
+     <Module Name="xml2list.dll">
+      <Messages>
+       <Message TypeName="MarkAssembliesWithClsCompliant" Category="Microsoft.Design" CheckId="CA1014" Created="2010-08-24 16:32:21Z">
+        <Issue>
+         <Item>'XML2List.dll'</Item>
+        </Issue>
+       </Message>
+       <Message Id="XML" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Excluded" Created="2010-08-24 16:32:21Z">
+        <Issue Name="Assembly">
+         <Item>XML</Item>
+         <Item>'XML2List.dll'</Item>
+         <Item>Xml</Item>
+        </Issue>
+        <Notes>
+         <User Name="Saturn">
+          <Note Id="0" />
+         </User>
+        </Notes>
+       </Message>
+      </Messages>
+      <Namespaces>
+       <Namespace Name="XML2List">
+        <Types>
+         <Type Name="AttributeSelector">
+          <Messages>
+           <Message TypeName="AvoidUninstantiatedInternalClasses" Category="Microsoft.Performance" CheckId="CA1812" Created="2010-08-24 16:32:21Z">
+            <Issue>
+             <Item>'AttributeSelector'</Item>
+            </Issue>
+           </Message>
+          </Messages>
+         </Type>
+         <Type Name="CommandLists">
+          <Members>
+           <Member Name="#GroupSelectCommands">
+            <Messages>
+             <Message TypeName="CollectionPropertiesShouldBeReadOnly" Category="Microsoft.Usage" CheckId="CA2227" Created="2010-08-24 16:32:21Z">
+              <Issue>
+               <Item>'CommandLists.GroupSelectCommands'</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="DoNotExposeGenericLists" Category="Microsoft.Design" CheckId="CA1002" Created="2010-08-24 16:32:21Z">
+              <Issue>
+               <Item>'List&lt;IElementGroupSelect&gt;'</Item>
+               <Item>'CommandLists.GroupSelectCommands'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#ItemSelectCommands">
+            <Messages>
+             <Message TypeName="CollectionPropertiesShouldBeReadOnly" Category="Microsoft.Usage" CheckId="CA2227" Created="2010-08-24 16:32:21Z">
+              <Issue>
+               <Item>'CommandLists.ItemSelectCommands'</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="DoNotExposeGenericLists" Category="Microsoft.Design" CheckId="CA1002" Created="2010-08-24 16:32:21Z">
+              <Issue>
+               <Item>'List&lt;IItemSelect&gt;'</Item>
+               <Item>'CommandLists.ItemSelectCommands'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="CSVListMaker">
+          <Messages>
+           <Message Id="CSV" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Excluded" Created="2010-08-24 16:32:21Z">
+            <Issue Name="Type">
+             <Item>CSV</Item>
+             <Item>'CSVListMaker'</Item>
+             <Item>Csv</Item>
+            </Issue>
+            <Notes>
+             <User Name="Saturn">
+              <Note Id="1" />
+             </User>
+            </Notes>
+           </Message>
+          </Messages>
+         </Type>
+         <Type Name="ElementAttributeValueSelector">
+          <Members>
+           <Member Name="#.ctor(System.String,PathLibrary.PathAttributeValueGroup[])">
+            <Messages>
+             <Message Id="PAVG" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Created="2010-08-24 16:32:21Z">
+              <Issue Name="MemberParameter">
+               <Item>'ElementAttributeValueSelector.ElementAttributeValueSelector(string, PathAttributeValueGroup[])'</Item>
+               <Item>PAVG</Item>
+               <Item>'listPAVG'</Item>
+               <Item>Pavg</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Name">
+            <Accessors>
+             <Accessor Name="#get_Name()">
+              <Messages>
+               <Message Id="System.String.Format(System.String,System.Object,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Created="2010-08-24 16:32:21Z">
+                <Issue Name="IFormatProviderAlternateString">
+                 <Item>'string.Format(string, object, object)'</Item>
+                 <Item>'ElementAttributeValueSelector.Name.get()'</Item>
+                 <Item>'string.Format(IFormatProvider, string, params object[])'</Item>
+                 <Item>'CultureInfo.CurrentCulture'</Item>
+                 <Item>'CultureInfo.InvariantCulture'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="ElementsGroupSelector">
+          <Members>
+           <Member Name="#.ctor(System.String)">
+            <Messages>
+             <Message TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" Created="2010-08-24 16:32:21Z">
+              <Issue Name="MemberParameter">
+               <Item>'ElementsGroupSelector.ElementsGroupSelector(string)'</Item>
+               <Item>'_childrenValues'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="PathListParser">
+          <Members>
+           <Member Name="#getGroupCommand(System.String)">
+            <Messages>
+             <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Created="2010-08-24 16:32:21Z" FixCategory="NonBreaking">
+              <Issue>
+               <Item>'PathListParser.getGroupCommand(string)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#getItemCommand(System.String)">
+            <Messages>
+             <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Created="2010-08-24 16:32:21Z" FixCategory="NonBreaking">
+              <Issue>
+               <Item>'PathListParser.getItemCommand(string)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+      </Namespaces>
+     </Module>
+    </Modules>
+   </Target>
+  </Targets>
+  <Notes>
+   <User Name="Saturn">
+    <Note Id="0" Modified="2010-08-24 16:45:01Z">correct name</Note>
+    <Note Id="1" Modified="2010-08-24 16:46:30Z">correct name</Note>
+   </User>
+  </Notes>
+  <Rules>
+   <Rule TypeName="AvoidNamespacesWithFewTypes" Category="Microsoft.Design" CheckId="CA1020">
+    <Resolution Name="Default">Consider merging the types defined in '{0}' with another namespace.</Resolution>
+   </Rule>
+   <Rule TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811">
+    <Resolution Name="Default">{0} appears to have no upstream public or protected callers.</Resolution>
+   </Rule>
+   <Rule TypeName="AvoidUninstantiatedInternalClasses" Category="Microsoft.Performance" CheckId="CA1812">
+    <Resolution Name="Default">{0} is an internal class that is apparently never instantiated. If so, remove the code from the assembly. If this class is intended to contain only static methods, consider adding a private constructor to prevent the compiler from generating a default constructor.</Resolution>
+   </Rule>
+   <Rule TypeName="CollectionPropertiesShouldBeReadOnly" Category="Microsoft.Usage" CheckId="CA2227">
+    <Resolution Name="Default">Change {0} to be read-only by removing the property setter.</Resolution>
+   </Rule>
+   <Rule TypeName="ConsiderPassingBaseTypesAsParameters" Category="Microsoft.Design" CheckId="CA1011">
+    <Resolution Name="Default">Consider changing the type of parameter {0} in {1} from {2} to its base type {3}. This method appears to only require base class members in its implementation. Suppress this violation if there is a compelling reason to require the more derived type in the method signature.</Resolution>
+   </Rule>
+   <Rule TypeName="DoNotCastUnnecessarily" Category="Microsoft.Performance" CheckId="CA1800">
+    <Resolution Name="Parameter">{0}, a parameter, is cast to type {1} multiple times in method {2}. Cache the result of the 'as' operator or direct cast in order to eliminate the redundant {3} instruction.</Resolution>
+   </Rule>
+   <Rule TypeName="DoNotExposeGenericLists" Category="Microsoft.Design" CheckId="CA1002">
+    <Resolution Name="Default">Change {0} in {1} to use Collection&lt;T&gt;, ReadOnlyCollection&lt;T&gt; or KeyedCollection&lt;K,V&gt;</Resolution>
+   </Rule>
+   <Rule TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709">
+    <Resolution Name="Assembly">Correct the casing of '{0}' in assembly name {1} by changing it to '{2}'.</Resolution>
+    <Resolution Name="MemberParameter">In member {0}, correct the casing of '{1}' in parameter name {2} by changing it to '{3}'.</Resolution>
+    <Resolution Name="Namespace">Correct the casing of '{0}' in namespace name '{1}' by changing it to '{2}'.</Resolution>
+    <Resolution Name="Type">Correct the casing of '{0}' in type name {1} by changing it to '{2}'.</Resolution>
+   </Rule>
+   <Rule TypeName="IdentifiersShouldNotContainTypeNames" Category="Microsoft.Naming" CheckId="CA1720">
+    <Resolution Name="LanguageIndependentMemberParameter">In member {0}, consider replacing the data type identifier '{1}' in parameter name {2} with a more generic term, such as 'value'.</Resolution>
+   </Rule>
+   <Rule TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707">
+    <Resolution Name="MemberParameter">In member {0}, remove the underscores from parameter name {1}.</Resolution>
+   </Rule>
+   <Rule TypeName="IdentifiersShouldNotMatchKeywords" Category="Microsoft.Naming" CheckId="CA1716">
+    <Resolution Name="Namespace">Rename namespace {0} so that it no longer conflicts with the reserved language keyword '{1}'. Using a reserved keyword as the name of a namespace makes it harder for consumers in other languages to use the namespace.</Resolution>
+   </Rule>
+   <Rule TypeName="InterfaceMethodsShouldBeCallableByChildTypes" Category="Microsoft.Design" CheckId="CA1033">
+    <Resolution Name="Default">Make {0} sealed (a breaking change if this class has previously shipped), implement the method non-explicitly, or implement a new method that exposes the functionality of {1} and is visible to derived classes.</Resolution>
+   </Rule>
+   <Rule TypeName="MarkAssembliesWithClsCompliant" Category="Microsoft.Design" CheckId="CA1014">
+    <Resolution Name="Default">Mark {0} with CLSCompliant(true) because it exposes externally visible types.</Resolution>
+   </Rule>
+   <Rule TypeName="MarkAssembliesWithNeutralResourcesLanguage" Category="Microsoft.Performance" CheckId="CA1824">
+    <Resolution Name="Default">Because assembly {0} contains a ResX-based resource file, mark it with the NeutralResourcesLanguage attribute, specifying the language of the resources within the assembly. This could improve lookup performance the first time a resource is retrieved.</Resolution>
+   </Rule>
+   <Rule TypeName="MarkISerializableTypesWithSerializable" Category="Microsoft.Usage" CheckId="CA2237">
+    <Resolution Name="Default">Add [Serializable] to {0} as this type implements ISerializable.</Resolution>
+   </Rule>
+   <Rule TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822">
+    <Resolution Name="Default">The 'this' parameter (or 'Me' in Visual Basic) of {0} is never used. Mark the member as static (or Shared in Visual Basic) or use 'this'/'Me' in the method body or at least one property accessor, if appropriate.</Resolution>
+   </Rule>
+   <Rule TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305">
+    <Resolution Name="IFormatProviderAlternateString">Because the behavior of {0} could vary based on the current user's locale settings, replace this call in {1} with a call to {2}. If the result of {2} will be displayed to the user, specify {3} as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify {4}.</Resolution>
+   </Rule>
+   <Rule TypeName="SpecifyStringComparison" Category="Microsoft.Globalization" CheckId="CA1307">
+    <Resolution Name="Default">Because the behavior of {0} could vary based on the current user's locale settings, replace this call in {1} with a call to {2}. If the result of {2} will be displayed to the user, such as when sorting a list of items for display in a list box, specify 'StringComparison.CurrentCulture' or 'StringComparison.CurrentCultureIgnoreCase' as the 'StringComparison' parameter. If comparing case-insensitive identifiers, such as file paths, environment variables, or registry keys and values, specify 'StringComparison.OrdinalIgnoreCase'. Otherwise, if comparing case-sensitive identifiers, specify 'StringComparison.Ordinal'.</Resolution>
+   </Rule>
+  </Rules>
+ </FxCopReport>
+</FxCopProject>

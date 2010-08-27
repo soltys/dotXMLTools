@@ -25,7 +25,7 @@ namespace XML2List
             {
                 return collection.First();
             }
-            catch (Exception)
+            catch (ArgumentException)
             {
 
                 return null;

@@ -32,7 +32,7 @@ namespace XML2List
 
                 return null;
             }
-            catch (Exception)
+            catch (ArgumentException)
             {
 
                 return null;
