@@ -13,6 +13,6 @@ namespace XML2List
         }
         public List<IElementGroupSelect> GroupSelectCommands { get; set; }
 
-        public List<IItemSelect> ItemSelectCommands { get; set; }
+        public ICollection<IItemSelect> ItemSelectCommands { get; set; }
     }
 }
