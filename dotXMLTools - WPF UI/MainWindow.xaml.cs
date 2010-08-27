@@ -28,8 +28,7 @@ namespace dotXMLToolsWPF
 
         private void MenuItem_File_Exit_Click(object sender, RoutedEventArgs e)
         {
-            Application application = App.Current;
-            application.Shutdown();
+            App.Current.Shutdown();
         }
 
         private void MenuItem_File_Open_Click(object sender, RoutedEventArgs e)
