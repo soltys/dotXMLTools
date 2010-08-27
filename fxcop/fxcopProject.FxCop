@@ -45,51 +45,81 @@
   <Namespaces>
    <Namespace Name="dotXMLToolsWPF">
     <Messages>
-     <Message Id="WPF" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Created="2010-08-24 16:32:21Z">
+     <Message Id="WPF" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Excluded" Created="2010-08-24 16:32:21Z">
       <Issue Name="Namespace">
        <Item>WPF</Item>
        <Item>dotXMLToolsWPF</Item>
        <Item>Wpf</Item>
       </Issue>
+      <Notes>
+       <User Name="Soltys">
+        <Note Id="0" />
+       </User>
+      </Notes>
      </Message>
-     <Message Id="XML" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Created="2010-08-24 16:32:21Z">
+     <Message Id="XML" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Excluded" Created="2010-08-24 16:32:21Z">
       <Issue Name="Namespace">
        <Item>XML</Item>
        <Item>dotXMLToolsWPF</Item>
        <Item>Xml</Item>
       </Issue>
+      <Notes>
+       <User Name="Soltys">
+        <Note Id="0" />
+       </User>
+      </Notes>
      </Message>
-     <Message Id="dot" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Created="2010-08-24 16:32:21Z">
+     <Message Id="dot" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Excluded" Created="2010-08-24 16:32:21Z">
       <Issue Name="Namespace">
        <Item>dot</Item>
        <Item>dotXMLToolsWPF</Item>
        <Item>Dot</Item>
       </Issue>
+      <Notes>
+       <User Name="Soltys">
+        <Note Id="0" />
+       </User>
+      </Notes>
      </Message>
     </Messages>
    </Namespace>
    <Namespace Name="dotXMLToolsWPF.Controls">
     <Messages>
-     <Message Id="WPF" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Created="2010-08-24 16:32:21Z">
+     <Message Id="WPF" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Excluded" Created="2010-08-24 16:32:21Z">
       <Issue Name="Namespace">
        <Item>WPF</Item>
        <Item>dotXMLToolsWPF.Controls</Item>
        <Item>Wpf</Item>
       </Issue>
+      <Notes>
+       <User Name="Soltys">
+        <Note Id="0" />
+       </User>
+      </Notes>
      </Message>
-     <Message Id="XML" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Created="2010-08-24 16:32:21Z">
+     <Message Id="XML" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Excluded" Created="2010-08-24 16:32:21Z">
       <Issue Name="Namespace">
        <Item>XML</Item>
        <Item>dotXMLToolsWPF.Controls</Item>
        <Item>Xml</Item>
       </Issue>
+      <Notes>
+       <User Name="Soltys">
+        <Note Id="0" />
+       </User>
+      </Notes>
      </Message>
-     <Message Id="dot" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Created="2010-08-24 16:32:21Z">
+     <Message Id="dot" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Excluded" Created="2010-08-24 16:32:21Z">
       <Issue Name="Namespace">
        <Item>dot</Item>
        <Item>dotXMLToolsWPF.Controls</Item>
        <Item>Dot</Item>
       </Issue>
+      <Notes>
+       <User Name="Soltys">
+        <Note Id="0" />
+       </User>
+      </Notes>
      </Message>
     </Messages>
    </Namespace>
@@ -147,18 +177,9 @@
     <Modules>
      <Module Name="dotxmltools.exe">
       <Messages>
-       <Message Id="XML" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Created="2010-08-24 16:32:21Z">
-        <Issue Name="Assembly">
-         <Item>XML</Item>
+       <Message TypeName="AssembliesShouldHaveValidStrongNames" Category="Microsoft.Design" CheckId="CA2210" Created="2010-08-27 19:08:06Z">
+        <Issue Name="NoStrongName">
          <Item>'dotXMLTools.exe'</Item>
-         <Item>Xml</Item>
-        </Issue>
-       </Message>
-       <Message Id="dot" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Created="2010-08-24 16:32:21Z">
-        <Issue Name="Assembly">
-         <Item>dot</Item>
-         <Item>'dotXMLTools.exe'</Item>
-         <Item>Dot</Item>
         </Issue>
        </Message>
        <Message TypeName="MarkAssembliesWithClsCompliant" Category="Microsoft.Design" CheckId="CA1014" Created="2010-08-24 16:32:21Z">
@@ -170,6 +191,30 @@
         <Issue>
          <Item>'dotXMLTools.exe'</Item>
         </Issue>
+       </Message>
+       <Message Id="XML" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Excluded" Created="2010-08-24 16:32:21Z">
+        <Issue Name="Assembly">
+         <Item>XML</Item>
+         <Item>'dotXMLTools.exe'</Item>
+         <Item>Xml</Item>
+        </Issue>
+        <Notes>
+         <User Name="Soltys">
+          <Note Id="0" />
+         </User>
+        </Notes>
+       </Message>
+       <Message Id="dot" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Excluded" Created="2010-08-24 16:32:21Z">
+        <Issue Name="Assembly">
+         <Item>dot</Item>
+         <Item>'dotXMLTools.exe'</Item>
+         <Item>Dot</Item>
+        </Issue>
+        <Notes>
+         <User Name="Soltys">
+          <Note Id="0" />
+         </User>
+        </Notes>
        </Message>
       </Messages>
       <Namespaces>
@@ -203,6 +248,23 @@
               </Issue>
              </Message>
             </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="PathSelection">
+          <Members>
+           <Member Name="#IsSelected">
+            <Accessors>
+             <Accessor Name="#set_IsSelected(System.Boolean)">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2010-08-27 19:08:06Z">
+                <Issue>
+                 <Item>'PathSelection.IsSelected.set(bool)'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
            </Member>
           </Members>
          </Type>
@@ -247,6 +309,13 @@
    <Target Name="$(ProjectDir)/../dotXMLTools - WPF UI/bin/Release/PathLibrary.dll">
     <Modules>
      <Module Name="pathlibrary.dll">
+      <Messages>
+       <Message TypeName="AssembliesShouldHaveValidStrongNames" Category="Microsoft.Design" CheckId="CA2210" Created="2010-08-27 19:08:06Z">
+        <Issue Name="NoStrongName">
+         <Item>'PathLibrary.dll'</Item>
+        </Issue>
+       </Message>
+      </Messages>
       <Namespaces>
        <Namespace Name="PathLibrary">
         <Types>
@@ -313,8 +382,8 @@
     <Modules>
      <Module Name="xml2list.dll">
       <Messages>
-       <Message TypeName="MarkAssembliesWithClsCompliant" Category="Microsoft.Design" CheckId="CA1014" Created="2010-08-24 16:32:21Z">
-        <Issue>
+       <Message TypeName="AssembliesShouldHaveValidStrongNames" Category="Microsoft.Design" CheckId="CA2210" Created="2010-08-27 19:08:06Z">
+        <Issue Name="NoStrongName">
          <Item>'XML2List.dll'</Item>
         </Issue>
        </Message>
@@ -364,12 +433,6 @@
             <Messages>
              <Message TypeName="CollectionPropertiesShouldBeReadOnly" Category="Microsoft.Usage" CheckId="CA2227" Created="2010-08-24 16:32:21Z">
               <Issue>
-               <Item>'CommandLists.ItemSelectCommands'</Item>
-              </Issue>
-             </Message>
-             <Message TypeName="DoNotExposeGenericLists" Category="Microsoft.Design" CheckId="CA1002" Created="2010-08-24 16:32:21Z">
-              <Issue>
-               <Item>'List&lt;IItemSelect&gt;'</Item>
                <Item>'CommandLists.ItemSelectCommands'</Item>
               </Issue>
              </Message>
@@ -474,8 +537,14 @@
     <Note Id="0" Modified="2010-08-24 16:45:01Z">correct name</Note>
     <Note Id="1" Modified="2010-08-24 16:46:30Z">correct name</Note>
    </User>
+   <User Name="Soltys">
+    <Note Id="0" Modified="2010-08-27 19:13:22Z">I tell what is good cased and what not!</Note>
+   </User>
   </Notes>
   <Rules>
+   <Rule TypeName="AssembliesShouldHaveValidStrongNames" Category="Microsoft.Design" CheckId="CA2210">
+    <Resolution Name="NoStrongName">Sign {0} with a strong name key.</Resolution>
+   </Rule>
    <Rule TypeName="AvoidNamespacesWithFewTypes" Category="Microsoft.Design" CheckId="CA1020">
     <Resolution Name="Default">Consider merging the types defined in '{0}' with another namespace.</Resolution>
    </Rule>
