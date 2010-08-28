@@ -6,9 +6,7 @@ using System.Windows;
 using System.Xml.Linq;
 using Microsoft.Win32;
 using PathLibrary;
-using PathLibrary.Interface;
 using XML2List;
-using XML2List.Interface;
 
 namespace dotXMLToolsWPF
 {
@@ -17,8 +15,8 @@ namespace dotXMLToolsWPF
     /// </summary>
     public partial class MainWindow : Window
     {
-        
-        private List<PathSelection> pathSelection = new List<PathSelection>();
+
+        private List<PathSelection> pathSelection = null;
         private XDocument xDocument = null;
         public MainWindow()
         {
@@ -33,6 +31,7 @@ namespace dotXMLToolsWPF
 
         private void MenuItem_File_Open_Click(object sender, RoutedEventArgs e)
         {
+            pathSelection = new List<PathSelection>();
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = @"XML Files(*.xml)|*.xml";
             openFileDialog.CheckFileExists = true;
