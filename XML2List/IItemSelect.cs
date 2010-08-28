@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Xml.Linq;
 
-namespace PathLibrary.Interface
+namespace XML2List
 {
     public interface IItemSelect
     {

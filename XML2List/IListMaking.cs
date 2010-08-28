@@ -1,6 +1,6 @@
 ﻿using System.IO;
 
-namespace XML2List.Interface
+namespace XML2List
 {
     public interface IListMaking
     {

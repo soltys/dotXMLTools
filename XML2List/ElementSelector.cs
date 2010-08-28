@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Linq;
 using PathLibrary;
-using PathLibrary.Interface;
+using XML2List;
 
 namespace XML2List
 {

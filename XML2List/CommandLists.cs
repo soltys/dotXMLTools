@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
-using PathLibrary.Interface;
-using XML2List.Interface;
+using XML2List;
 
 namespace XML2List
 {
