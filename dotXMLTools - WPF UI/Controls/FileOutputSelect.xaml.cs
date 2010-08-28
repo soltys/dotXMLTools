@@ -28,7 +28,7 @@ namespace dotXMLToolsWPF.Controls
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = @"XML Files(*.txt,*.csv)|*.txt;*.csv";
+            openFileDialog.Filter = @"CSV Files(*.txt,*.csv)|*.txt;*.csv";
             openFileDialog.CheckFileExists = true;
             openFileDialog.Multiselect = false;
 
