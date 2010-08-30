@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
 using System.Xml.Linq;
 using Microsoft.Win32;
 using PathLibrary;
@@ -16,7 +19,7 @@ namespace dotXMLToolsWPF
     public partial class MainWindow : Window
     {
 
-        private List<PathSelection> pathSelection = null;
+        private ObservableCollection<PathSelection> pathSelection = null;
         private XDocument xDocument = null;
         public MainWindow()
         {
@@ -31,7 +34,7 @@ namespace dotXMLToolsWPF
 
         private void MenuItem_File_Open_Click(object sender, RoutedEventArgs e)
         {
-            pathSelection = new List<PathSelection>();
+            pathSelection = new ObservableCollection<PathSelection>();
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = @"XML Files(*.xml)|*.xml";
             openFileDialog.CheckFileExists = true;
@@ -49,19 +52,33 @@ namespace dotXMLToolsWPF
                 }
                 PathSelector.lstView.ItemsSource = pathSelection;
             }
-        
+
+            PathSelector.PathClick += new Controls.PathSelect.PathMouseClickHandler(PathSelector_PathClick);
+        }
+
+        void PathSelector_PathClick(string path)
+        {
+            PathSelector.lstView.ItemsSource = null;
+            foreach (var test in pathSelection)
+            {
+                if (test.Path == path)
+                {
+                    test.IsSelected = !test.IsSelected;
+                }
+            }
+            PathSelector.lstView.ItemsSource = pathSelection;
+
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-           
-
             if (xDocument == null)
             {
                 MessageBox.Show("Nie wczytano pliku XML");
                 return;
             }
-            var convertSelectList =
+            var getSelectedPaths =
                 (from path in pathSelection
                 where path.IsSelected
                 select path.Path).ToArray();
@@ -69,7 +86,7 @@ namespace dotXMLToolsWPF
             using (StreamWriter writer = new StreamWriter(fileoutput.OutputFilePath))
             {
                 IListMaking csvListMaker = new CSVListMaker(xDocument);
-                csvListMaker.MakeList(writer,convertSelectList);
+                csvListMaker.MakeList(writer,getSelectedPaths);
                 MessageBox.Show("Lista została zapisana w pliku: " + fileoutput.OutputFilePath);
             }
         }

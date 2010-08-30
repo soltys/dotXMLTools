@@ -19,9 +19,19 @@ namespace dotXMLToolsWPF.Controls
     /// </summary>
     public partial class PathSelect : UserControl
     {
+        public delegate void PathMouseClickHandler(string path);
+
+        public event PathMouseClickHandler PathClick = delegate { }; 
         public PathSelect()
         {
             InitializeComponent();
+        }
+
+        private void TextBlock_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            TextBlock path = sender as TextBlock;
+            if (path != null)
+                PathClick(path.Text);
         }
     }
 }

@@ -16,19 +16,8 @@
                                 <DataTemplate>
                                     <Grid>
                                         <Rectangle VerticalAlignment="Center" HorizontalAlignment="Center" Width="30" Height="30" Fill="Transparent" x:Name="bg"></Rectangle>
-                                        <CheckBox VerticalAlignment="Center" HorizontalAlignment="Center" IsChecked="{Binding Path=IsSelected}" x:Name="cb"></CheckBox>
-                                    </Grid>
-                                    <DataTemplate.Triggers>
-                                        <EventTrigger RoutedEvent="CheckBox.Checked">
-                                            <BeginStoryboard>
-                                                <Storyboard>
-                                                    <ColorAnimation Storyboard.TargetName="bg"
-                                                                    Storyboard.TargetProperty="Fill.Color"
-                                                                    To="RosyBrown" Duration="0:0:0.5" AutoReverse="True"/>
-                                                </Storyboard>
-                                            </BeginStoryboard>
-                                        </EventTrigger>
-                                    </DataTemplate.Triggers>
+                                        <CheckBox VerticalAlignment="Center" HorizontalAlignment="Center" IsChecked="{Binding Path=IsSelected, Mode=TwoWay}" x:Name="cb"></CheckBox>
+                                    </Grid>                                
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
@@ -38,7 +27,7 @@
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <Grid>
-                                        <TextBlock Text="{Binding Path=Path}"></TextBlock>
+                                        <TextBlock Text="{Binding Path=Path, Mode=TwoWay}" MouseLeftButtonDown="TextBlock_MouseLeftButtonDown"></TextBlock>
                                     </Grid>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
